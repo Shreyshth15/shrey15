@@ -174,7 +174,7 @@ img {
 }
 
 .hero .status-line {
-  margin-bottom: clamp(3rem, 7vw, 6.5rem);
+  margin-bottom: 1.6rem;
 }
 
 .hero h1 {
@@ -269,7 +269,7 @@ img {
 }
 
 .portrait-frame::before {
-  content: "ANALYST / 2026";
+  content: "FINANCE × DATA / 2026";
   position: absolute;
   top: -24px;
   right: 5px;
@@ -334,7 +334,7 @@ img {
 
 .proof-strip {
   display: grid;
-  grid-template-columns: 1.25fr 0.8fr 1.25fr;
+  grid-template-columns: 1.05fr 1.05fr 0.78fr 1.22fr;
   border-block: 1px solid var(--line);
   background: var(--white);
 }
@@ -736,6 +736,22 @@ input[type="range"] {
   border: 1px solid currentColor;
   font: 650 0.58rem var(--font-geist-mono);
   text-transform: uppercase;
+  cursor: default;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease,
+    color 160ms ease;
+}
+
+.tag-row span:hover {
+  z-index: 1;
+  background: var(--acid);
+  color: var(--ink);
+  transform: translate(-2px, -3px) scale(1.04);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.project-audience .tag-row span:hover {
+  background: var(--blue);
+  color: var(--white);
 }
 
 .project-foot a {
@@ -1027,6 +1043,7 @@ input[type="range"] {
 }
 
 .experience-choice {
+  --experience-accent: var(--acid);
   width: 100%;
   min-height: 112px;
   padding: 1rem 1.1rem;
@@ -1040,7 +1057,19 @@ input[type="range"] {
   color: var(--ink);
   text-align: left;
   cursor: pointer;
-  transition: background 180ms ease;
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+.experience-choice:nth-child(2) {
+  --experience-accent: var(--orange);
+}
+
+.experience-choice:nth-child(3) {
+  --experience-accent: var(--cyan);
+}
+
+.experience-choice:nth-child(4) {
+  --experience-accent: var(--violet);
 }
 
 .experience-choice:last-child {
@@ -1049,7 +1078,11 @@ input[type="range"] {
 
 .experience-choice:hover,
 .experience-choice[aria-selected="true"] {
-  background: var(--acid);
+  background: var(--experience-accent);
+}
+
+.experience-choice:hover {
+  transform: translateX(4px);
 }
 
 .choice-index {
@@ -1080,11 +1113,25 @@ input[type="range"] {
 }
 
 .experience-panel {
+  --experience-accent: var(--acid);
   min-height: 620px;
   padding: clamp(1.5rem, 4vw, 4.2rem);
   display: flex;
   flex-direction: column;
+  border-top: 9px solid var(--experience-accent);
   animation: panel-in 260ms ease both;
+}
+
+.experience-panel.experience-tone-2 {
+  --experience-accent: var(--orange);
+}
+
+.experience-panel.experience-tone-3 {
+  --experience-accent: var(--cyan);
+}
+
+.experience-panel.experience-tone-4 {
+  --experience-accent: var(--violet);
 }
 
 @keyframes panel-in {
@@ -1143,6 +1190,7 @@ input[type="range"] {
 .experience-detail > div + div {
   padding-left: 1.2rem;
   border-left: 1px solid var(--line);
+  background: color-mix(in srgb, var(--experience-accent) 19%, transparent);
 }
 
 .experience-detail > div > span {
@@ -1196,7 +1244,7 @@ input[type="range"] {
 }
 
 .capability-grid article {
-  min-height: 520px;
+  min-height: 440px;
   padding: clamp(1.5rem, 3.5vw, 3.4rem);
   display: flex;
   flex-direction: column;
@@ -1219,7 +1267,7 @@ input[type="range"] {
 
 .capability-grid h3 {
   max-width: 530px;
-  margin: 4.5rem 0 2rem;
+  margin: 2.8rem 0 2rem;
   font: 400 clamp(2.2rem, 3.6vw, 4rem) / 1 Georgia, serif;
   letter-spacing: -0.045em;
 }
@@ -1286,8 +1334,17 @@ input[type="range"] {
 
 .about-target {
   max-width: 760px;
-  margin: 0 0 2.8rem;
+  margin: 0 0 1.2rem;
   color: var(--muted);
+  line-height: 1.75;
+}
+
+.about-personal {
+  max-width: 760px;
+  margin: 0 0 2.8rem;
+  padding-left: 1.1rem;
+  border-left: 4px solid var(--acid);
+  color: #454841;
   line-height: 1.75;
 }
 
@@ -1548,7 +1605,7 @@ input[type="range"] {
   }
 
   .hero .status-line {
-    margin-bottom: 2.8rem;
+    margin-bottom: 1.25rem;
     font-size: 0.58rem;
   }
 
@@ -1732,7 +1789,7 @@ input[type="range"] {
   }
 
   .capability-grid article {
-    min-height: 510px;
+    min-height: 450px;
   }
 
   .about-photo {
