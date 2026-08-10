@@ -50,8 +50,8 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: imageUrl,
-          width: 1024,
-          height: 682,
+          width: 768,
+          height: 512,
           alt: "Shreyshth Sharma — Financial Research and Data Analytics",
         },
       ],
