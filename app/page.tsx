@@ -165,12 +165,8 @@ export default function Home() {
 
         <section className="proof-strip" aria-label="Professional positioning">
           <article>
-            <span>Finance evidence</span>
-            <p>Company and sector research · Investor materials · Operating-spend analysis</p>
-          </article>
-          <article>
-            <span>Analytics evidence</span>
-            <p>Intel decision framework · UBI sensitivity model · Client dashboards</p>
+            <span>Evidence</span>
+            <p>Company and sector research · Investor materials · Operating-spend analysis · Intel decision framework · UBI sensitivity model · Client dashboards</p>
           </article>
           <article>
             <span>Toolkit</span>
@@ -300,11 +296,7 @@ export default function Home() {
         <section className="section experience-section" id="experience" aria-labelledby="experience-title">
           <div className="section-heading compact-heading">
             <p className="eyebrow">02 / Experience</p>
-            <h2 id="experience-title">Four roles. One working pattern.</h2>
-            <p>
-              Start with an ambiguous question. Find the evidence. Build the
-              comparison. Make the output useful to the next person.
-            </p>
+            <h2 id="experience-title">Four roles. One habit: make the evidence useful.</h2>
           </div>
           <ExperienceExplorer />
         </section>
@@ -370,10 +362,8 @@ export default function Home() {
               analytics, and finance-focused consulting.
             </p>
             <p className="about-personal">
-              Outside the spreadsheet, I&apos;m usually following football, reading
-              about markets or philosophy, or lifting something heavier than my
-              laptop. That mix keeps me curious, competitive, and able to talk
-              like a person—not a dashboard.
+              Outside the spreadsheet: football, markets, philosophy, and the
+              gym. Enough range to stay curious—and talk like a person, not a dashboard.
             </p>
             <div className="education-list">
               <div>
@@ -395,24 +385,15 @@ export default function Home() {
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-kicker">
             <span className="status-dot" aria-hidden="true" />
-            Open to the right analytical team
+            Open nationwide
           </div>
           <h2 id="contact-title">
-            If the role needs both the investment question and the analytical answer,
-            <em> we should talk.</em>
+            The work is here.
+            <em> Let&apos;s talk about yours.</em>
           </h2>
-          <div className="contact-grid">
-            <p>
-              Based in the Washington–Baltimore area and open to opportunities
-              nationwide. I&apos;m happy to discuss a role, a project, or the logic
-              behind any case study on this site.
-            </p>
-            <div>
-              <span>Typical conversation window</span>
-              <strong>Monday–Friday · 12:00–7:00 PM ET</strong>
-              <small>Live Google Calendar booking · busy times are automatically withheld.</small>
-            </div>
-          </div>
+          <p className="contact-intro">
+            Based in Washington–Baltimore. Open nationwide to finance and analytics roles.
+          </p>
           <div className="contact-actions">
             <a className="button button-acid" href="mailto:Shreshth2002@gmail.com">
               Email Shrey <span aria-hidden="true">↗</span>

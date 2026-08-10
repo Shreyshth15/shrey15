@@ -13,13 +13,13 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /Analysis that holds up/);
   assert.match(page, /Financial research × data analytics/);
   assert.match(page, /How sensitive is the UBI answer/);
-  assert.match(page, /Finance evidence/);
+  assert.match(page, /Company and sector research/);
+  assert.match(page, /Intel decision framework/);
   assert.match(page, /Corporate finance and transaction support/);
   assert.match(page, /five candidate data-center/);
   assert.match(page, /three engagement drop-off points/);
   assert.match(page, /Nobody knows what 96% of Excel means/);
   assert.match(page, /intention of sitting for the Level I exam/);
-  assert.match(page, /Live Google Calendar booking/);
   assert.match(page, /Book 30 minutes/);
   assert.match(page, /calendar\.google\.com\/calendar\/u\/0\/appointments\/schedules/);
   assert.match(page, /mailto:Shreshth2002@gmail.com/);
@@ -33,6 +33,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(interactive, /Evidence boundary|Current decision lens/);
   assert.doesNotMatch(page, /10s of thousands|9h → 2h|8\+ companies/i);
   assert.doesNotMatch(page, /Interactivity here is part of the analysis|LMAO/i);
+  assert.doesNotMatch(page, /Typical conversation window|busy times are automatically withheld/i);
+  assert.match(page, /The work is here/);
 });
 
 test("final site has production metadata and required public assets", async () => {
