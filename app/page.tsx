@@ -14,34 +14,37 @@ export const metadata: Metadata = {
     "Economics and Quantitative Methods graduate building defensible research, decision models, and analytical reporting across finance and business questions.",
 };
 
+const bookingUrl =
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2KI9iKlYUYG7eE8OJuNifjKdTYUQn3_oGtvD-kDc9J_CmYZVAA_8Dps8k6zEhm_HSa7YtAXnOm?gv=true";
+
 const capabilities = [
   {
     number: "01",
-    title: "Investigate a company or sector",
-    does: "Map market context, funding momentum, and competitive positioning; turn the research into a concise point of view.",
-    why: "It helps a team decide where deeper diligence and attention belong.",
+    title: "Finance research",
+    does: "Research companies, sectors, funding context, and competitive position; turn the evidence into a clear point of view.",
+    why: "It shows where deeper diligence—and capital—may deserve attention.",
     proof: "Marquee Equity · company and sector research",
   },
   {
     number: "02",
-    title: "Structure messy evidence",
-    does: "Clean, reconcile, and compare multi-source information with Excel, SQL, Python, and Tableau.",
-    why: "A decision is only as credible as the inputs and logic behind it.",
-    proof: "Intel · energy and infrastructure comparison",
+    title: "Financial analysis",
+    does: "Read financial statements, compare business drivers, and examine spending, cost, and variance patterns.",
+    why: "It connects the numbers to what is actually happening in the business.",
+    proof: "DLF · operating-spend analysis · finance coursework",
   },
   {
     number: "03",
-    title: "Test the assumption",
-    does: "Use sensitivity analysis, econometric reasoning, and weighted criteria to show how an answer changes.",
-    why: "It replaces one brittle estimate with a range the reviewer can challenge.",
-    proof: "UBI project · elasticity sensitivity model",
+    title: "Data & decision models",
+    does: "Clean, join, score, and stress-test evidence with Excel, SQL, Python, Tableau, and econometric reasoning.",
+    why: "It makes the trade-off visible, reviewable, and easier to challenge.",
+    proof: "Intel decision framework · UBI sensitivity model",
   },
   {
     number: "04",
-    title: "Make the decision legible",
-    does: "Build dashboards, presentations, and investor-facing materials around the question—not the tool.",
-    why: "Good analysis earns trust when someone else can explain and use it.",
-    proof: "Client reporting · Tableau · PowerPoint",
+    title: "Communicate the call",
+    does: "Build dashboards, presentations, and investor materials around the decision—not the software used to make them.",
+    why: "A result only matters if the next person can understand and use it.",
+    proof: "Recording Academy reporting · Marquee investor materials",
   },
 ];
 
@@ -110,8 +113,9 @@ export default function Home() {
             </h1>
             <p className="hero-intro">
               I&apos;m <strong>Shreyshth Sharma</strong>—an Economics and
-              Quantitative Methods graduate with experience across company and
-              sector research, finance operations, and client-facing analytics.
+              Quantitative Methods graduate who researches companies, examines
+              financial and operating data, and builds decision tools for teams
+              where finance judgment and analytical rigor belong together.
             </p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">
@@ -161,16 +165,20 @@ export default function Home() {
 
         <section className="proof-strip" aria-label="Professional positioning">
           <article>
-            <span>Evidence</span>
-            <p>Company and sector research · Intel decision dashboard · UBI sensitivity model</p>
+            <span>Finance evidence</span>
+            <p>Company and sector research · Investor materials · Operating-spend analysis</p>
+          </article>
+          <article>
+            <span>Analytics evidence</span>
+            <p>Intel decision framework · UBI sensitivity model · Client dashboards</p>
           </article>
           <article>
             <span>Toolkit</span>
             <p>Excel · PowerPoint · Tableau · SQL · Python · R</p>
           </article>
           <article>
-            <span>Role focus</span>
-            <p>Credit and investment research · Portfolio analytics · Finance-adjacent consulting</p>
+            <span>Role direction</span>
+            <p>Investment and credit research · Corporate finance and transaction support · Portfolio analytics</p>
           </article>
         </section>
 
@@ -179,8 +187,8 @@ export default function Home() {
             <p className="eyebrow">01 / Selected work</p>
             <h2 id="work-title">Use the models.</h2>
             <p>
-              Adjust the assumptions, inspect the logic, and see where the
-              evidence ends. Interactivity here is part of the analysis—not decoration.
+              Move the inputs. Challenge the output. If the answer breaks,
+              that&apos;s useful too.
             </p>
           </div>
 
@@ -217,10 +225,10 @@ export default function Home() {
             <UbiSimulator />
             <div className="project-foot">
               <div className="tag-row" aria-label="UBI project tools">
-                <span>Python</span>
-                <span>Pandas</span>
-                <span>Matplotlib</span>
-                <span>Sensitivity analysis</span>
+                <span title="Simulation logic">Python</span>
+                <span title="Scenario outputs">Pandas</span>
+                <span title="Sensitivity charts">Matplotlib</span>
+                <span title="Stress-tested assumptions">Sensitivity analysis</span>
               </div>
               <a
                 href="https://github.com/Shreyshth15/UBI-Labor-Supply-Simulation"
@@ -255,9 +263,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="tag-row">
-                <span>Tableau</span>
-                <span>Excel</span>
-                <span>Comparative analysis</span>
+                <span title="Comparative decision views">Tableau</span>
+                <span title="Normalized multi-source inputs">Excel</span>
+                <span title="Weighted criteria and trade-offs">Comparative analysis</span>
               </div>
             </article>
 
@@ -281,9 +289,9 @@ export default function Home() {
                 </p>
               </div>
               <div className="tag-row">
-                <span>Tableau</span>
-                <span>Python</span>
-                <span>KPI reporting</span>
+                <span title="Audience reporting views">Tableau</span>
+                <span title="Data cleaning and automation">Python</span>
+                <span title="Reach, engage, and retain framing">KPI reporting</span>
               </div>
             </article>
           </div>
@@ -310,8 +318,8 @@ export default function Home() {
             <p className="eyebrow">03 / Capabilities</p>
             <h2 id="capabilities-title">What I actually do.</h2>
             <p>
-              Each capability is tied to a specific kind of work and a reason
-              it matters. No unsupported proficiency bars. No tool-first claims.
+              Financial markets, modeling, and communication—without the 96%
+              skill bars. Nobody knows what 96% of Excel means.
             </p>
           </div>
           <div className="capability-grid">
@@ -357,8 +365,15 @@ export default function Home() {
             </p>
             <p className="about-target">
               I&apos;m targeting teams where financial judgment and analytical
-              execution live in the same role—especially credit and investment
-              research, portfolio or performance analytics, and finance-adjacent consulting.
+              execution live in the same role—across investment and credit
+              research, corporate finance and transaction support, portfolio
+              analytics, and finance-focused consulting.
+            </p>
+            <p className="about-personal">
+              Outside the spreadsheet, I&apos;m usually following football, reading
+              about markets or philosophy, or lifting something heavier than my
+              laptop. That mix keeps me curious, competitive, and able to talk
+              like a person—not a dashboard.
             </p>
             <div className="education-list">
               <div>
@@ -371,7 +386,7 @@ export default function Home() {
               </div>
               <div>
                 <span>Current study</span>
-                <p>Deepening fixed-income and credit foundations through Level I curriculum materials.</p>
+                <p>Preparing with CFA Program Level I curriculum materials, with the intention of sitting for the Level I exam.</p>
               </div>
             </div>
           </div>
@@ -395,7 +410,7 @@ export default function Home() {
             <div>
               <span>Typical conversation window</span>
               <strong>Monday–Friday · 12:00–7:00 PM ET</strong>
-              <small>Requested times are confirmed by email.</small>
+              <small>Live Google Calendar booking · busy times are automatically withheld.</small>
             </div>
           </div>
           <div className="contact-actions">
@@ -404,9 +419,11 @@ export default function Home() {
             </a>
             <a
               className="button button-outline"
-              href="mailto:Shreshth2002@gmail.com?subject=Conversation%20request&body=Hi%20Shrey%2C%0A%0AI%27d%20like%20to%20connect.%20My%20preferred%20weekday%20and%20time%20between%2012%3A00%20PM%20and%207%3A00%20PM%20ET%20is%3A%0A%0A"
+              href={bookingUrl}
+              target="_blank"
+              rel="noreferrer"
             >
-              Request a call <span aria-hidden="true">↗</span>
+              Book 30 minutes <span aria-hidden="true">↗</span>
             </a>
             <a
               className="button button-outline"

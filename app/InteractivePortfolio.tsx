@@ -31,7 +31,7 @@ export function UbiSimulator() {
             <span>01</span>
             <p>Set the assumptions</p>
           </div>
-          <span className="live-pill">Live model</span>
+          <span className="live-pill">Live model · yes, it moves</span>
         </div>
 
         <label className="range-control" htmlFor="elasticity">
@@ -412,7 +412,12 @@ export function ExperienceExplorer() {
         ))}
       </div>
 
-      <article className="experience-panel" id="experience-panel" role="tabpanel" key={active.company}>
+      <article
+        className={`experience-panel experience-tone-${activeIndex + 1}`}
+        id="experience-panel"
+        role="tabpanel"
+        key={active.company}
+      >
         <div className="experience-meta">
           <span>{active.date}</span>
           <span>{active.location}</span>
@@ -438,7 +443,9 @@ export function ExperienceExplorer() {
 
         <div className="tag-row" aria-label="Relevant skills and tools">
           {active.tools.map((tool) => (
-            <span key={tool}>{tool}</span>
+            <span key={tool} title={`${tool} · used in this role`}>
+              {tool}
+            </span>
           ))}
         </div>
       </article>
