@@ -266,6 +266,7 @@ img {
   background: var(--white);
   transform: rotate(0.8deg);
   box-shadow: 17px 17px 0 var(--blue);
+  transition: transform 240ms ease, box-shadow 240ms ease;
 }
 
 .portrait-frame::before {
@@ -283,6 +284,7 @@ img {
   object-fit: cover;
   object-position: 50% 60%;
   filter: saturate(0.82) contrast(1.04);
+  transition: filter 240ms ease;
 }
 
 .photo-caption {
@@ -334,7 +336,7 @@ img {
 
 .proof-strip {
   display: grid;
-  grid-template-columns: 1.05fr 1.05fr 0.78fr 1.22fr;
+  grid-template-columns: 1.55fr 0.72fr 1.13fr;
   border-block: 1px solid var(--line);
   background: var(--white);
 }
@@ -346,6 +348,7 @@ img {
   flex-direction: column;
   justify-content: center;
   border-right: 1px solid var(--line);
+  transition: background 180ms ease;
 }
 
 .proof-strip article:last-child {
@@ -404,6 +407,7 @@ img {
   border: 1px solid var(--ink);
   background: var(--white);
   box-shadow: 8px 8px 0 var(--ink);
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
 .project-topline {
@@ -1028,6 +1032,7 @@ input[type="range"] {
 
 .compact-heading h2 {
   max-width: 1050px;
+  grid-column: 1 / -1;
 }
 
 .experience-explorer {
@@ -1036,6 +1041,7 @@ input[type="range"] {
   border: 1px solid var(--ink);
   background: var(--white);
   box-shadow: 8px 8px 0 var(--ink);
+  transition: box-shadow 200ms ease;
 }
 
 .experience-list {
@@ -1250,6 +1256,7 @@ input[type="range"] {
   flex-direction: column;
   border-right: 1px solid #474a42;
   border-bottom: 1px solid #474a42;
+  transition: background 180ms ease;
 }
 
 .capability-grid article:nth-child(2n) {
@@ -1315,6 +1322,7 @@ input[type="range"] {
   border: 1px solid var(--ink);
   filter: saturate(0.82) contrast(1.04);
   box-shadow: -13px 13px 0 var(--blue);
+  transition: transform 240ms ease, box-shadow 240ms ease, filter 240ms ease;
 }
 
 .about-photo p {
@@ -1358,6 +1366,7 @@ input[type="range"] {
   grid-template-columns: 180px 1fr;
   gap: 1.5rem;
   border-bottom: 1px solid var(--line);
+  transition: padding 180ms ease, background 180ms ease;
 }
 
 .education-list span {
@@ -1399,37 +1408,11 @@ input[type="range"] {
   font-weight: 400;
 }
 
-.contact-grid {
-  max-width: 1000px;
+.contact-intro {
+  max-width: 640px;
   margin-top: 3rem;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-}
-
-.contact-grid > p {
-  margin: 0;
   color: rgba(255, 255, 255, 0.78);
   line-height: 1.7;
-}
-
-.contact-grid > div {
-  padding-left: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  border-left: 1px solid rgba(255, 255, 255, 0.45);
-}
-
-.contact-grid span,
-.contact-grid small {
-  color: rgba(255, 255, 255, 0.68);
-  font: 0.61rem / 1.5 var(--font-geist-mono);
-  text-transform: uppercase;
-}
-
-.contact-grid strong {
-  margin: 0.45rem 0;
-  font-size: 1rem;
 }
 
 .button-acid {
@@ -1446,6 +1429,45 @@ input[type="range"] {
 .contact-section .button-outline:hover,
 .contact-section .button-outline:focus-visible {
   box-shadow: 5px 5px 0 var(--white);
+}
+
+@media (hover: hover) {
+  .portrait-frame:hover {
+    transform: rotate(0deg) scale(1.025);
+    box-shadow: 21px 21px 0 var(--blue);
+  }
+
+  .portrait-frame:hover img,
+  .about-photo:hover img {
+    filter: saturate(1) contrast(1.02);
+  }
+
+  .about-photo:hover img {
+    transform: translateY(-5px) scale(1.025) rotate(-0.25deg);
+    box-shadow: -18px 18px 0 var(--blue);
+  }
+
+  .proof-strip article:hover {
+    background: color-mix(in srgb, var(--blue) 7%, var(--white));
+  }
+
+  .project:hover {
+    transform: translateY(-4px);
+    box-shadow: 12px 12px 0 var(--ink);
+  }
+
+  .experience-explorer:hover {
+    box-shadow: 12px 12px 0 var(--ink);
+  }
+
+  .capability-grid article:hover {
+    background: #191c16;
+  }
+
+  .education-list > div:hover {
+    padding-left: 0.8rem;
+    background: color-mix(in srgb, var(--acid) 16%, transparent);
+  }
 }
 
 .footer-line {
@@ -1803,17 +1825,6 @@ input[type="range"] {
 
   .contact-section h2 {
     font-size: clamp(3.5rem, 16vw, 5.9rem);
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .contact-grid > div {
-    padding: 1.2rem 0 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.45);
-    border-left: 0;
   }
 
   .contact-actions .button {
