@@ -35,7 +35,10 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(interactive, /min="0\.05"/);
   assert.match(interactive, /max="0\.2"/);
   assert.match(interactive, /Modeled change in work hours/);
-  assert.match(interactive, /Recommendation/);
+  assert.match(interactive, /Live scenario/);
+  assert.match(interactive, /Project conclusion/);
+  assert.match(interactive, /Site A won\./);
+  assert.match(interactive, /strongest sustainability-first balance/);
   assert.match(intelModel, /Site A/);
   assert.match(intelModel, /Site E/);
   assert.match(interactive, /What would flip it/);

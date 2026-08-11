@@ -141,7 +141,7 @@ const knowledge: KnowledgeItem[] = [
     answer:
       "The portfolio features three interactive projects: a UBI labor-supply sensitivity model, an Intel data-center site-selection framework, and Recording Academy audience analytics organized around reach, engage, and retain. Each one now states the outcome, not just the scope.",
     detail:
-      "The UBI project shows sensitivity to elasticity assumptions. Intel ranks anonymized Sites A through E and changes the winner as the criteria weights move. Recording Academy shows where to inspect audience drop-off across reach, engagement, and retention.",
+      "The UBI project shows sensitivity to elasticity assumptions. Intel's published project conclusion is Site A because it offered the strongest sustainability-first balance; the live model then shows how changing weights can produce a different winner. Recording Academy shows where to inspect audience drop-off across reach, engagement, and retention.",
   },
   {
     id: "roles",

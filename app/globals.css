@@ -1010,25 +1010,44 @@ input[type="range"] {
   border-top: 1px solid #4d5048;
 }
 
-.recommendation-panel > div:nth-child(3) {
+.recommendation-panel > div:nth-child(4) {
   border-left: 1px solid #4d5048;
 }
 
-.recommendation-panel .recommendation-result {
+.recommendation-panel .project-conclusion {
+  grid-column: 1 / -1;
+  padding: 1.45rem;
+  border-top: 0;
+  background: var(--acid);
+  color: var(--ink);
+}
+
+.project-conclusion span {
+  color: var(--blue-deep);
+}
+
+.project-conclusion > strong {
+  margin: 0.65rem 0 0;
+  display: block;
+  font: 400 clamp(3rem, 5vw, 5.2rem) / 0.9 Georgia, serif;
+  letter-spacing: -0.045em;
+}
+
+.recommendation-panel .scenario-result {
   grid-column: 1 / -1;
   display: grid;
   grid-template-columns: 105px 1fr;
   align-items: start;
   gap: 0.45rem 1rem;
-  border-top: 0;
+  border-top: 1px solid #4d5048;
 }
 
-.recommendation-result > strong {
+.scenario-result > strong {
   color: var(--acid);
-  font: 400 clamp(2.5rem, 4vw, 4.3rem) / 0.85 Georgia, serif;
+  font: 400 clamp(1.8rem, 3vw, 3.2rem) / 0.95 Georgia, serif;
 }
 
-.recommendation-result > p {
+.scenario-result > p {
   grid-column: 2;
 }
 
@@ -1037,6 +1056,13 @@ input[type="range"] {
   color: #c0c3ba;
   font-size: 0.7rem;
   line-height: 1.65;
+}
+
+.recommendation-panel .project-conclusion p {
+  max-width: 650px;
+  margin-top: 0.8rem;
+  color: var(--ink);
+  font-size: 0.76rem;
 }
 
 .recommendation-panel > small {
@@ -2249,15 +2275,15 @@ input[type="range"] {
     grid-template-columns: 1fr;
   }
 
-  .recommendation-panel > div:nth-child(3) {
+  .recommendation-panel > div:nth-child(4) {
     border-left: 0;
   }
 
-  .recommendation-panel .recommendation-result {
+  .recommendation-panel .scenario-result {
     grid-template-columns: 1fr;
   }
 
-  .recommendation-result > p {
+  .scenario-result > p {
     grid-column: 1;
   }
 

@@ -285,9 +285,16 @@ export function IntelDecisionExplorer() {
       </div>
 
       <div className="recommendation-panel" aria-live="polite">
-        <div className="recommendation-result">
-          <span>{isBaseline ? "Recommendation" : "Current winner"}</span>
-          <strong>{winner.label}</strong>
+        <div className="project-conclusion">
+          <span>Project conclusion</span>
+          <strong>Site A won.</strong>
+          <p>
+            At the original weights, Site A offered the strongest sustainability-first balance. Its renewable advantage did the most work, while grid reliability and infrastructure readiness kept it from winning on sustainability alone.
+          </p>
+        </div>
+        <div className="scenario-result">
+          <span>Live scenario</span>
+          <strong>{winner.label} {isBaseline ? "still leads." : "leads."}</strong>
           <p>
             {winner.label} leads on the current mix, driven most by {winnerDrivers[0].label.toLowerCase()} and{" "}
             {winnerDrivers[1].label.toLowerCase()}. It is {(winner.total - runnerUp.total).toFixed(1)} points ahead of{" "}
