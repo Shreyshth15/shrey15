@@ -5,9 +5,10 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 
 test("portfolio content stays evidence-led and recruiter-ready", async () => {
-  const [page, interactive, leo] = await Promise.all([
+  const [page, interactive, intelModel, leo] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/InteractivePortfolio.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/intelModel.ts", import.meta.url), "utf8"),
     readFile(new URL("../app/LeoAssistant.tsx", import.meta.url), "utf8"),
   ]);
 
@@ -22,7 +23,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /five candidate data-center/);
   assert.match(page, /three engagement drop-off points/);
   assert.match(page, /Nobody knows what 96% of Excel means/);
-  assert.match(page, /intention of sitting for the Level I exam/);
+  assert.match(page, /Available immediately · Updated August 2026/);
+  assert.doesNotMatch(page, /CFA|Current study|Level I exam/);
   assert.match(page, /Book 30 minutes/);
   assert.match(page, /calendar\.google\.com\/calendar\/u\/0\/appointments\/schedules/);
   assert.match(page, /mailto:Shreshth2002@gmail.com/);
@@ -33,21 +35,33 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(interactive, /min="0\.05"/);
   assert.match(interactive, /max="0\.2"/);
   assert.match(interactive, /Modeled change in work hours/);
-  assert.match(interactive, /Evidence boundary|Current decision lens/);
+  assert.match(interactive, /Live scenario/);
+  assert.match(interactive, /Project conclusion/);
+  assert.match(interactive, /Site A won\./);
+  assert.match(interactive, /strongest sustainability-first balance/);
+  assert.match(intelModel, /Site A/);
+  assert.match(intelModel, /Site E/);
+  assert.match(interactive, /What would flip it/);
+  assert.match(interactive, /duration: "12 months"/);
+  assert.match(interactive, /Outcome/);
   assert.doesNotMatch(page, /10s of thousands|9h → 2h|8\+ companies/i);
   assert.doesNotMatch(page, /Interactivity here is part of the analysis|LMAO/i);
   assert.doesNotMatch(page, /Typical conversation window|busy times are automatically withheld/i);
   assert.match(page, /Looking for this mix/);
   assert.match(page, /Different desks\. Same standard/);
-  assert.match(page, /Visca Barça/);
+  assert.match(page, />Visca</);
+  assert.match(page, />Barça\.</);
   assert.match(page, /Applied work/);
   assert.match(page, /Curiosity brought me to economics/);
   assert.match(page, /Psychology minor/);
-  assert.match(page, /at the piano, out for a long run/);
+  assert.match(page, /Outside work, you&apos;ll usually find me playing the piano/);
+  assert.match(page, /resetting with breathwork/);
   assert.match(page, /I grew up in/);
   assert.match(page, /behavior behind the numbers/);
-  assert.match(page, /FC Barcelona has my/);
-  assert.match(page, /needlessly stressful final ten minutes/);
+  assert.match(page, /FC Barcelona is my club/);
+  assert.match(page, />Visca<\/span> el/);
+  assert.match(page, /visca-blue/);
+  assert.match(page, /barca-red/);
   assert.match(page, /Role focus/);
   assert.doesNotMatch(page, /—/);
 
@@ -73,6 +87,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(leo, /resolveEnglishIntent/);
   assert.match(leo, /composeWhyHireAnswer/);
   assert.match(leo, /Development areas/);
+  assert.doesNotMatch(leo, /CFA|Level I curriculum|active CFA candidate/);
   assert.doesNotMatch(leo, /PEDRI|PedriAssistant/);
   assert.doesNotMatch(leo, /—/);
 });

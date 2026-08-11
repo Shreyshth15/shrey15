@@ -107,6 +107,7 @@ export default function Home() {
               <span className="status-dot" aria-hidden="true" />
               Washington–Baltimore · Open nationwide
             </div>
+            <p className="hero-status">Available immediately · Updated August 2026.</p>
             <p className="eyebrow">Financial research × data analytics</p>
             <h1 id="hero-title">
               Understand the business.
@@ -221,6 +222,12 @@ export default function Home() {
               </div>
             </div>
             <UbiSimulator />
+            <div className="project-outcome">
+              <span>Outcome</span>
+              <p>
+                Turned a single policy estimate into a sensitivity view that shows exactly when the conclusion changes.
+              </p>
+            </div>
             <div className="project-foot">
               <div className="tag-row" aria-label="UBI project tools">
                 <span title="Simulation logic">Python</span>
@@ -252,14 +259,6 @@ export default function Home() {
                 and infrastructure inputs.
               </p>
               <IntelDecisionExplorer />
-              <div className="evidence-note">
-                <span>Evidence boundary</span>
-                <p>
-                  This explorer reconstructs the weighting logic. Site-level
-                  scores and the original recommendation are not published here
-                  because the underlying report is not part of this portfolio.
-                </p>
-              </div>
               <div className="tag-row">
                 <span title="Comparative decision views">Tableau</span>
                 <span title="Normalized multi-source inputs">Excel</span>
@@ -279,6 +278,12 @@ export default function Home() {
                 three engagement drop-off points and top-performing content segments.
               </p>
               <AudienceLens />
+              <div className="project-outcome">
+                <span>Outcome</span>
+                <p>
+                  Identified three engagement drop-off points and the strongest content segments, giving the final strategy a clearer focus.
+                </p>
+              </div>
               <div className="evidence-note">
                 <span>Evidence boundary</span>
                 <p>
@@ -366,12 +371,6 @@ export default function Home() {
               investment research, finance operations, and client analytics. I am looking
               for roles where financial judgment and analytical execution belong together.
             </p>
-            <p className="about-personal">
-              Outside work, you&apos;ll usually find me at the piano, out for a long run,
-              reading philosophy, or resetting with breathwork. FC Barcelona has my
-              loyalty through every high, low, and needlessly stressful final ten minutes
-              <strong> (Visca Barça).</strong>
-            </p>
             <div className="education-list">
               <div>
                 <span>Indiana University</span>
@@ -381,11 +380,12 @@ export default function Home() {
                 <span>London School of Economics</span>
                 <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
               </div>
-              <div>
-                <span>Current study</span>
-                <p>Preparing with CFA Program Level I curriculum materials, with the intention of sitting for the Level I exam.</p>
-              </div>
             </div>
+            <p className="about-personal">
+              Outside work, you&apos;ll usually find me playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is my club, and when they&apos;re playing, everything else can wait.{" "}
+              <span className="visca-blue">Visca</span> el{" "}
+              <span className="barca-red">Barça.</span>
+            </p>
           </div>
         </section>
 
