@@ -44,7 +44,10 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /Curiosity brought me to economics/);
   assert.match(page, /Psychology minor/);
   assert.match(page, /at the piano, out for a long run/);
-  assert.match(page, /calendar\s+stops pretending it has authority/);
+  assert.match(page, /I grew up in/);
+  assert.match(page, /behavior behind the numbers/);
+  assert.match(page, /FC Barcelona has my/);
+  assert.match(page, /needlessly stressful final ten minutes/);
   assert.match(page, /Role focus/);
   assert.doesNotMatch(page, /—/);
 
@@ -67,6 +70,9 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(leo, /previousTopic/);
   assert.match(leo, /financial-analysis/);
   assert.match(leo, /communication/);
+  assert.match(leo, /resolveEnglishIntent/);
+  assert.match(leo, /composeWhyHireAnswer/);
+  assert.match(leo, /Development areas/);
   assert.doesNotMatch(leo, /PEDRI|PedriAssistant/);
   assert.doesNotMatch(leo, /—/);
 });
