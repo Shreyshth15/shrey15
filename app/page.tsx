@@ -352,23 +352,25 @@ export default function Home() {
             <p className="eyebrow">04 / About</p>
             <h2 id="about-title">Curiosity brought me to economics. Evidence led me to quant.</h2>
             <p className="about-lead">
-              Economics gave me the language for <strong>incentives, markets, and
-              decisions</strong>. I added Quantitative Methods because intuition is
-              useful, but I wanted the tools to test it. My <strong>Psychology minor</strong>
-              added another layer: numbers describe patterns, but people still make
-              the decisions. Together, they taught me to <strong>start with the business
-              question</strong> and earn the answer with evidence.
+              I grew up in <strong>Delhi</strong> and came to Indiana University curious
+              about why people, businesses, and markets make the choices they do.
+              Economics gave me the language for <strong>incentives and trade-offs</strong>.
+              I added Quantitative Methods because I did not want to stop at intuition;
+              I wanted to test the story against the data. My <strong>Psychology minor</strong>{" "}
+              added the third piece: understanding the behavior behind the numbers.
             </p>
             <p className="about-target">
-              That mix followed me into <strong>company research, finance operations,
-              and client analytics</strong>. I want to keep using it where the stakes
-              are real: study the business, question the assumptions, and help make the call.
+              That combination now shapes how I work. I can <strong>research a company,
+              examine the financial and operating evidence, build a model or dashboard,
+              and explain the conclusion clearly</strong>. I have used that approach across
+              investment research, finance operations, and client analytics. I am looking
+              for roles where financial judgment and analytical execution belong together.
             </p>
             <p className="about-personal">
               Outside work, you&apos;ll usually find me at the piano, out for a long run,
-              or slowing things down with breathwork. I read philosophy because I like
-              ideas that make me reconsider my own. And when Barça play, my calendar
-              stops pretending it has authority. <strong>Visca Barça.</strong>
+              reading philosophy, or resetting with breathwork. FC Barcelona has my
+              loyalty through every high, low, and needlessly stressful final ten minutes
+              <strong> (Visca Barça).</strong>
             </p>
             <div className="education-list">
               <div>

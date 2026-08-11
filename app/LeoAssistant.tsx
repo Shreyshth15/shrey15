@@ -2,6 +2,12 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
+import {
+  composeRoleFitAnswer,
+  composeWhyHireAnswer,
+  normalizeQuestion,
+  resolveEnglishIntent,
+} from "./leoIntent";
 
 type Message = {
   id: number;
@@ -140,27 +146,36 @@ const knowledge: KnowledgeItem[] = [
   {
     id: "roles",
     title: "Role fit",
-    keywords: ["role", "roles", "job", "fit", "hire", "opportunity", "career", "target", "looking for", "credit research", "corporate finance", "portfolio analytics"],
+    keywords: ["role", "roles", "job", "fit", "opportunity", "career", "target", "looking for", "credit research", "corporate finance", "portfolio analytics"],
     answer:
-      "Shrey is targeting entry-level roles in investment and credit research, corporate finance, transaction support, portfolio analytics, and finance-focused consulting. The best fit is a team that wants someone to research the question, work through the data, and explain the call clearly.",
+      "Shrey is targeting entry-level roles in investment and credit research, structured finance, corporate finance, transaction support, portfolio or performance analytics, and finance-focused consulting. The best fit is a team that wants someone to research the question, work through the data, and explain the call clearly.",
     detail:
       "He is especially well positioned for roles that sit between a finance question and an analytical answer. Pure research and pure analytics can both fit, but the overlap is where his profile becomes most distinctive.",
   },
   {
     id: "why-hire",
     title: "Why Shrey?",
-    keywords: ["why shrey", "why hire", "strength", "different", "value", "bring to the table", "candidate"],
+    keywords: ["why shrey", "why hire", "why choose", "strength", "different", "value", "bring to the table", "candidate", "worth hiring"],
     answer:
-      "Shrey's edge is the combination: finance context, quantitative execution, and clear communication. He can move from an ambiguous business question to a structured comparison without pretending every model is certainty. Useful judgment, visible assumptions, no 96% Excel skill bar.",
+      "Because Shrey already works through the full analyst loop: understand the business question, research the context, analyze the evidence, and explain the call. He has applied that pattern in investment research, finance operations, and client analytics.",
     detail:
-      "A recruiter can see that combination across investment research, finance operations, client analytics, and independent modeling. Different desks, same habit of making the evidence useful.",
+      "The proof is visible across Marquee Equity, DLF, nTalents.ai, and Global Tech projects for Intel and the Recording Academy. Different settings, same habit of making research and analysis useful to a decision-maker.",
+  },
+  {
+    id: "growth",
+    title: "Development areas",
+    keywords: ["weakness", "weaknesses", "development", "gap", "missing", "concern", "risk", "still learning"],
+    answer:
+      "Shrey is early-career. He has relevant foundations for credit, structured finance, and transaction work, but he does not claim direct professional underwriting or deal-execution depth that he has not yet earned. The value is a credible base in research, finance, and analytics with clear room to grow under an experienced team.",
+    detail:
+      "A fair interview should test his accounting depth, valuation thinking, credit judgment, and ability to defend assumptions. His portfolio shows how he approaches evidence; it should not be mistaken for years of specialized transaction experience.",
   },
   {
     id: "personal",
     title: "Outside work",
     keywords: ["hobby", "hobbies", "outside work", "personal", "piano", "running", "run", "meditation", "breathwork", "philosophy", "barca", "barcelona", "football", "leo"],
     answer:
-      "Outside work, Shrey plays piano, runs, practices meditation and breathwork, and reads philosophy and different schools of thought. He is also a committed Barça supporter. I am named LEO, so neutrality was never really on the table. Visca Barça.",
+      "Outside work, Shrey plays piano, runs, practices meditation and breathwork, and reads philosophy and different schools of thought. He is also a committed FC Barcelona supporter. Some discipline, some curiosity, and one club that regularly tests both (Visca Barça).",
     detail:
       "The common thread is curiosity and rhythm: learning a piece at the piano, settling into a long run, slowing down through breathwork, or finding an idea that challenges his own. Barça is less calming, but loyalty has its costs.",
   },
@@ -210,7 +225,8 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
     communication: "Shrey dashboards, presentations और investor materials को software के हिसाब से नहीं, decision के हिसाब से बनाते हैं। उनका लक्ष्य है कि stakeholder question, evidence, trade-off और सीमा तुरंत समझ सके।",
     projects: "Portfolio में तीन interactive projects हैं: UBI labor-supply sensitivity model, Intel data-center site-selection framework और Recording Academy audience analytics। हर project assumptions और evidence boundary साफ दिखाता है।",
     roles: "Shrey investment और credit research, corporate finance, transaction support, portfolio analytics और finance-focused consulting की entry-level roles target कर रहे हैं।",
-    "why-hire": "Shrey की खासियत finance context, quantitative execution और clear communication का combination है। वह ambiguous question को structured comparison में बदलते हैं और model की limitations नहीं छिपाते।",
+    "why-hire": "Shrey को hire करने की मजबूत वजह यह है कि वह पूरा analyst loop संभाल सकते हैं: business question समझना, context research करना, evidence analyze करना और decision साफ तरीके से explain करना। उन्होंने यह pattern investment research, finance operations और client analytics में दिखाया है।",
+    growth: "Shrey early-career हैं। Credit underwriting, structured finance और transaction execution में direct professional depth अभी बननी है। उनकी ताकत research, finance और analytics की credible foundation है, बिना उस अनुभव का दावा किए जो अभी हासिल नहीं हुआ।",
     personal: "काम के बाहर Shrey piano बजाते हैं, running करते हैं, meditation और breathwork practice करते हैं और philosophy पढ़ते हैं। वह Barça fan भी हैं। मेरा नाम LEO है, इसलिए neutrality की उम्मीद मत रखिए। Visca Barça.",
     languages: "Shrey fluent English बोलते हैं और Hindi तथा Punjabi के native speaker हैं। उन्हें basic Spanish भी आती है। मैं भी Hindi और Punjabi में portfolio questions का जवाब दे सकता हूँ।",
     cfa: "Shrey CFA Program Level I curriculum materials से तैयारी कर रहे हैं और Level I exam देने का इरादा रखते हैं। वह current confirmation के बिना खुद को active CFA candidate नहीं बताते।",
@@ -231,7 +247,8 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
     communication: "Shrey dashboards, presentations ਅਤੇ investor materials ਨੂੰ software ਨਹੀਂ, decision ਦੇ ਆਲੇ-ਦੁਆਲੇ ਬਣਾਉਂਦੇ ਹਨ ਤਾਂ ਜੋ stakeholder question, evidence, trade-off ਅਤੇ boundary ਤੁਰੰਤ ਸਮਝ ਸਕੇ।",
     projects: "Portfolio ਵਿੱਚ ਤਿੰਨ interactive projects ਹਨ: UBI labor-supply sensitivity model, Intel data-center site-selection framework ਅਤੇ Recording Academy audience analytics। ਹਰ project assumptions ਅਤੇ evidence boundary ਸਾਫ ਦਿਖਾਉਂਦਾ ਹੈ।",
     roles: "Shrey investment ਅਤੇ credit research, corporate finance, transaction support, portfolio analytics ਅਤੇ finance-focused consulting ਦੀਆਂ entry-level roles target ਕਰ ਰਹੇ ਹਨ।",
-    "why-hire": "Shrey ਦੀ ਖਾਸੀਅਤ finance context, quantitative execution ਅਤੇ clear communication ਦਾ combination ਹੈ। ਉਹ ambiguous question ਨੂੰ structured comparison ਵਿੱਚ ਬਦਲਦੇ ਹਨ ਅਤੇ model ਦੀਆਂ limitations ਨਹੀਂ ਲੁਕਾਉਂਦੇ।",
+    "why-hire": "Shrey ਨੂੰ hire ਕਰਨ ਦੀ ਮਜ਼ਬੂਤ ਵਜ੍ਹਾ ਇਹ ਹੈ ਕਿ ਉਹ ਪੂਰਾ analyst loop ਸੰਭਾਲ ਸਕਦੇ ਹਨ: business question ਸਮਝਣਾ, context research ਕਰਨਾ, evidence analyze ਕਰਨਾ ਅਤੇ decision ਸਾਫ ਤਰੀਕੇ ਨਾਲ explain ਕਰਨਾ। ਇਹ pattern ਉਨ੍ਹਾਂ ਨੇ investment research, finance operations ਅਤੇ client analytics ਵਿੱਚ ਦਿਖਾਇਆ ਹੈ।",
+    growth: "Shrey early-career ਹਨ। Credit underwriting, structured finance ਅਤੇ transaction execution ਵਿੱਚ direct professional depth ਹਾਲੇ ਬਣਨੀ ਹੈ। ਉਨ੍ਹਾਂ ਦੀ ਤਾਕਤ research, finance ਅਤੇ analytics ਦੀ credible foundation ਹੈ, ਬਿਨਾਂ ਨਾ-ਕੀਤੇ experience ਦਾ ਦਾਅਵਾ ਕੀਤੇ।",
     personal: "ਕੰਮ ਤੋਂ ਬਾਹਰ Shrey piano ਵਜਾਉਂਦੇ, running ਕਰਦੇ, meditation ਅਤੇ breathwork practice ਕਰਦੇ ਅਤੇ philosophy ਪੜ੍ਹਦੇ ਹਨ। ਉਹ Barça fan ਵੀ ਹਨ। ਮੇਰਾ ਨਾਮ LEO ਹੈ, ਇਸ ਲਈ neutrality ਦੀ ਉਮੀਦ ਨਾ ਰੱਖੋ। Visca Barça.",
     languages: "Shrey fluent English ਬੋਲਦੇ ਹਨ ਅਤੇ Hindi ਤੇ Punjabi ਦੇ native speaker ਹਨ। ਉਨ੍ਹਾਂ ਨੂੰ basic Spanish ਵੀ ਆਉਂਦੀ ਹੈ। ਮੈਂ ਵੀ Hindi ਅਤੇ Punjabi ਵਿੱਚ portfolio questions ਦੇ ਜਵਾਬ ਦੇ ਸਕਦਾ ਹਾਂ।",
     cfa: "Shrey CFA Program Level I curriculum materials ਨਾਲ ਤਿਆਰੀ ਕਰ ਰਹੇ ਹਨ ਅਤੇ Level I exam ਦੇਣ ਦਾ ਇਰਾਦਾ ਰੱਖਦੇ ਹਨ। Current confirmation ਤੋਂ ਬਿਨਾਂ ਉਹ ਆਪਣੇ ਆਪ ਨੂੰ active CFA candidate ਨਹੀਂ ਕਹਿੰਦੇ।",
@@ -242,6 +259,8 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
 const localizedIntents: Record<"hi" | "pa", Array<{ topic: string; pattern: RegExp }>> = {
   hi: [
     { topic: "age", pattern: /उम्र|जन्म/ },
+    { topic: "why-hire", pattern: /क्यों.*(?:हायर|नौकरी|चुन)|हायर.*क्यों/ },
+    { topic: "growth", pattern: /कमजोरी|कमी|क्या सीखना|चिंता/ },
     { topic: "psychology", pattern: /मनोविज्ञान|साइकोलॉजी/ },
     { topic: "personal", pattern: /शौक|पियानो|दौड़|ध्यान|बार्सा|फुटबॉल/ },
     { topic: "contact", pattern: /संपर्क|ईमेल|मिलना|बात करनी|कैलेंडर/ },
@@ -256,6 +275,8 @@ const localizedIntents: Record<"hi" | "pa", Array<{ topic: string; pattern: RegE
   ],
   pa: [
     { topic: "age", pattern: /ਉਮਰ|ਜਨਮ/ },
+    { topic: "why-hire", pattern: /ਕਿਉਂ.*(?:ਹਾਇਰ|ਨੌਕਰੀ|ਚੁਣ)|ਹਾਇਰ.*ਕਿਉਂ/ },
+    { topic: "growth", pattern: /ਕਮਜ਼ੋਰੀ|ਕਮੀ|ਕੀ ਸਿੱਖਣਾ|ਚਿੰਤਾ/ },
     { topic: "psychology", pattern: /ਮਨੋਵਿਗਿਆਨ|ਸਾਇਕੋਲੋਜੀ/ },
     { topic: "personal", pattern: /ਸ਼ੌਕ|ਪਿਆਨੋ|ਦੌੜ|ਧਿਆਨ|ਬਾਰਸਾ|ਫੁੱਟਬਾਲ/ },
     { topic: "contact", pattern: /ਸੰਪਰਕ|ਈਮੇਲ|ਮਿਲਣਾ|ਗੱਲ ਕਰਨੀ|ਕੈਲੰਡਰ/ },
@@ -271,10 +292,10 @@ const localizedIntents: Record<"hi" | "pa", Array<{ topic: string; pattern: RegE
 };
 
 const quickQuestions = [
-  "What roles fit Shrey?",
+  "Why should we hire Shrey?",
+  "What roles fit him best?",
   "Why economics and quant?",
   "What has he built?",
-  "What is he like outside work?",
 ];
 
 const greeting: Message = {
@@ -283,17 +304,8 @@ const greeting: Message = {
   text: "Hey, I’m LEO. I know Shrey’s work, projects, and the story behind both. Ask me anything.",
 };
 
-const normalize = (value: string) =>
-  value
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[^a-z0-9\s]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-
 function detectLanguage(question: string, current: BotLanguage): BotLanguage {
-  const normalizedQuestion = normalize(question);
+  const normalizedQuestion = normalizeQuestion(question);
   if (/\b(english|in english|english please)\b/.test(normalizedQuestion)) return "en";
   if (/[\u0A00-\u0A7F]/.test(question) || /\b(punjabi|punjabi vich|sat sri akal)\b/.test(normalizedQuestion)) return "pa";
   if (/[\u0900-\u097F]/.test(question) || /\b(hindi|hindi mein|hindi me|namaste)\b/.test(normalizedQuestion)) return "hi";
@@ -304,7 +316,7 @@ function findEnglishTopic(normalizedQuestion: string) {
   return knowledge
     .map((item) => {
       const score = item.keywords.reduce((total, keyword) => {
-        const normalizedKeyword = normalize(keyword);
+        const normalizedKeyword = normalizeQuestion(keyword);
         return normalizedQuestion.includes(normalizedKeyword)
           ? total + Math.max(8, normalizedKeyword.split(" ").length * 5)
           : total;
@@ -319,7 +331,7 @@ function answerQuestion(
   previousTopic: string | null,
   currentLanguage: BotLanguage,
 ): AnswerResult {
-  const normalizedQuestion = normalize(question);
+  const normalizedQuestion = normalizeQuestion(question);
   const language = detectLanguage(question, currentLanguage);
   const isFollowUp =
     /^(tell me more|more|go on|details|detail|give me an example|example|examples|how so|what else)$/.test(normalizedQuestion) ||
@@ -348,22 +360,39 @@ function answerQuestion(
     ? knowledge.find((entry) => entry.id === previousTopic)
     : undefined;
 
-  if (!item) {
-    const englishMatch = findEnglishTopic(normalizedQuestion);
-    if (englishMatch?.score >= 8) item = englishMatch.item;
-  }
-
   if (!item && language !== "en") {
     const localizedTopic = localizedIntents[language].find(({ pattern }) => pattern.test(question))?.topic;
     if (localizedTopic) item = knowledge.find((entry) => entry.id === localizedTopic);
   }
 
+  if (!item && language === "en") {
+    const directTopic = resolveEnglishIntent(normalizedQuestion);
+    if (directTopic) item = knowledge.find((entry) => entry.id === directTopic);
+  }
+
+  if (!item) {
+    const englishMatch = findEnglishTopic(normalizedQuestion);
+    if (englishMatch?.score >= 8) item = englishMatch.item;
+  }
+
   if (item) {
-    const text = language === "en"
-      ? isFollowUp && item.detail
-        ? item.detail
-        : item.answer
-      : localizedAnswers[language][item.id] ?? localizedAnswers[language]["leo-help"];
+    const repeatedTopic = item.id === previousTopic && !isFollowUp;
+    const wantsDetail =
+      isFollowUp ||
+      repeatedTopic ||
+      /\b(?:be specific|show me evidence|prove it|why exactly|i asked|really|actually|convince me|make the case)\b/.test(normalizedQuestion);
+
+    let text: string;
+    if (language !== "en") {
+      text = localizedAnswers[language][item.id] ?? localizedAnswers[language]["leo-help"];
+    } else if (item.id === "why-hire") {
+      text = composeWhyHireAnswer(normalizedQuestion, wantsDetail);
+    } else if (item.id === "roles") {
+      text = composeRoleFitAnswer(normalizedQuestion, wantsDetail);
+    } else {
+      text = wantsDetail && item.detail ? item.detail : item.answer;
+    }
+
     return { text, topic: item.id, language };
   }
 
