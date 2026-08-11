@@ -10,7 +10,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
     readFile(new URL("../app/InteractivePortfolio.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Analysis that holds up/);
+  assert.match(page, /Understand the business/);
+  assert.match(page, /Test the numbers/);
   assert.match(page, /Financial research × data analytics/);
   assert.match(page, /How sensitive is the UBI answer/);
   assert.match(page, /Company research/);
@@ -35,10 +36,12 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.doesNotMatch(page, /10s of thousands|9h → 2h|8\+ companies/i);
   assert.doesNotMatch(page, /Interactivity here is part of the analysis|LMAO/i);
   assert.doesNotMatch(page, /Typical conversation window|busy times are automatically withheld/i);
-  assert.match(page, /The work is here/);
+  assert.match(page, /Looking for this mix/);
   assert.match(page, /Different desks\. Same standard/);
   assert.match(page, /Visca Barça/);
-  assert.match(page, /Track record/);
+  assert.match(page, /Applied work/);
+  assert.match(page, /Curiosity brought me to economics/);
+  assert.match(page, /play piano, run, and practice meditation/);
   assert.match(page, /Role focus/);
   assert.doesNotMatch(page, /—/);
 });
@@ -53,12 +56,15 @@ test("final site has production metadata and required public assets", async () =
   assert.doesNotMatch(page, /codex-preview|SkeletonPreview|_sites-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview|_sites-preview/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
-  assert.match(layout, /og\.png/);
+  assert.match(layout, /og-v2\.jpg/);
+  assert.match(layout, /Understand the Business\. Test the Numbers\./);
+  assert.doesNotMatch(layout, /Analysis that holds up|—/);
   assert.match(layout, /robots: \{ index: true, follow: true \}/);
 
   await Promise.all([
     access(new URL("../public/resume.pdf", import.meta.url)),
     access(new URL("../public/og.png", import.meta.url)),
+    access(new URL("../public/og-v2.jpg", import.meta.url)),
     access(new URL("../public/images/shrey-iu.jpg", import.meta.url)),
     access(new URL("../public/images/shrey-graduation.jpg", import.meta.url)),
   ]);

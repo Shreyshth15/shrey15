@@ -108,8 +108,8 @@ export default function Home() {
             </div>
             <p className="eyebrow">Financial research × data analytics</p>
             <h1 id="hero-title">
-              Analysis that holds up
-              <em> in the room.</em>
+              Understand the business.
+              <em> Test the numbers.</em>
             </h1>
             <p className="hero-intro">
               I&apos;m <strong>Shreyshth Sharma</strong>, an Economics and
@@ -166,7 +166,7 @@ export default function Home() {
 
         <section className="proof-strip" aria-label="Professional positioning">
           <article>
-            <span>Track record</span>
+            <span>Applied work</span>
             <p>Company research · Investor materials · Spend analysis · Decision models · Sensitivity testing · Client dashboards</p>
           </article>
           <article>
@@ -349,7 +349,7 @@ export default function Home() {
           </div>
           <div className="about-copy">
             <p className="eyebrow">04 / About</p>
-            <h2 id="about-title">Numbers tell you what happened. I wanted to understand why.</h2>
+            <h2 id="about-title">Curiosity brought me to economics. Evidence led me to quant.</h2>
             <p className="about-lead">
               Economics gave me the language for <strong>incentives, markets, and
               decisions</strong>. I added Quantitative Methods because intuition is
@@ -363,9 +363,9 @@ export default function Home() {
               are real: study the business, question the assumptions, and help make the call.
             </p>
             <p className="about-personal">
-              When the laptop closes, I am usually lifting, reading philosophy,
-              or watching Barça. Markets somehow follow me anyway. The loyalty
-              is permanent. <strong>Visca Barça.</strong>
+              Outside work, I play piano, run, and practice meditation, especially
+              breathwork. I also read philosophy and explore different schools of
+              thought. When Barça play, everything else can wait. <strong>Visca Barça.</strong>
             </p>
             <div className="education-list">
               <div>
@@ -390,8 +390,8 @@ export default function Home() {
             Open nationwide
           </div>
           <h2 id="contact-title">
-            The work is here.
-            <em> Let&apos;s talk about yours.</em>
+            Looking for this mix?
+            <em> Let&apos;s talk.</em>
           </h2>
           <p className="contact-intro">
             Based in Washington–Baltimore. Open nationwide to finance and analytics roles.
