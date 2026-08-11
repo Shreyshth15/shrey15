@@ -7,6 +7,7 @@ import {
   IntelDecisionExplorer,
   UbiSimulator,
 } from "./InteractivePortfolio";
+import { LeoAssistant } from "./LeoAssistant";
 
 export const metadata: Metadata = {
   title: "Shreyshth Sharma | Financial Research & Data Analytics",
@@ -353,9 +354,10 @@ export default function Home() {
             <p className="about-lead">
               Economics gave me the language for <strong>incentives, markets, and
               decisions</strong>. I added Quantitative Methods because intuition is
-              useful, but I wanted the tools to test it. Together, they taught me
-              to <strong>start with the business question</strong> and earn the answer
-              with evidence.
+              useful, but I wanted the tools to test it. My <strong>Psychology minor</strong>
+              added another layer: numbers describe patterns, but people still make
+              the decisions. Together, they taught me to <strong>start with the business
+              question</strong> and earn the answer with evidence.
             </p>
             <p className="about-target">
               That mix followed me into <strong>company research, finance operations,
@@ -363,9 +365,10 @@ export default function Home() {
               are real: study the business, question the assumptions, and help make the call.
             </p>
             <p className="about-personal">
-              Outside work, I play piano, run, and practice meditation, especially
-              breathwork. I also read philosophy and explore different schools of
-              thought. When Barça play, everything else can wait. <strong>Visca Barça.</strong>
+              Outside work, you&apos;ll usually find me at the piano, out for a long run,
+              or slowing things down with breathwork. I read philosophy because I like
+              ideas that make me reconsider my own. And when Barça play, my calendar
+              stops pretending it has authority. <strong>Visca Barça.</strong>
             </p>
             <div className="education-list">
               <div>
@@ -430,6 +433,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+      <LeoAssistant />
     </>
   );
 }
