@@ -333,6 +333,17 @@ function answerQuestion(
     return { text: help, topic: "leo-help", language };
   }
 
+  const isLanguageRequest =
+    /^(english|english please|in english|hindi|hindi mein|hindi me|punjabi|punjabi vich)$/.test(normalizedQuestion) ||
+    /हिंदी में बात करें|ਪੰਜਾਬੀ ਵਿੱਚ ਗੱਲ ਕਰੋ/.test(question);
+
+  if (isLanguageRequest) {
+    const help = language === "en"
+      ? "We can continue in English. Ask about Shrey's background, work, projects, capabilities, or role fit."
+      : localizedAnswers[language]["leo-help"];
+    return { text: help, topic: "leo-help", language };
+  }
+
   let item = isFollowUp && previousTopic
     ? knowledge.find((entry) => entry.id === previousTopic)
     : undefined;
@@ -345,10 +356,6 @@ function answerQuestion(
   if (!item && language !== "en") {
     const localizedTopic = localizedIntents[language].find(({ pattern }) => pattern.test(question))?.topic;
     if (localizedTopic) item = knowledge.find((entry) => entry.id === localizedTopic);
-  }
-
-  if (!item && language !== "en") {
-    item = knowledge.find((entry) => entry.id === "leo-help");
   }
 
   if (item) {
@@ -437,7 +444,7 @@ export function LeoAssistant() {
             <div className="leo-avatar" aria-hidden="true">L</div>
             <div>
               <strong id="leo-title">LEO</strong>
-              <span>Shrey&apos;s portfolio assistant</span>
+              <span>AI assistant</span>
             </div>
             <button type="button" onClick={() => setOpen(false)} aria-label="Close LEO">
               ×
