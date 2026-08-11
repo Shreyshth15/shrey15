@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const imageUrl = `${origin}/og.png`;
+  const imageUrl = `${origin}/og-v2.jpg`;
 
   return {
     title: {
@@ -42,7 +42,7 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: { index: true, follow: true },
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
     openGraph: {
-      title: "Shreyshth Sharma — Analysis that holds up in the room",
+      title: "Shreyshth Sharma | Understand the Business. Test the Numbers.",
       description: "Financial research × data analytics.",
       url: origin,
       siteName: "Shreyshth Sharma Portfolio",
@@ -50,16 +50,16 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: imageUrl,
-          width: 768,
-          height: 512,
-          alt: "Shreyshth Sharma — Financial Research and Data Analytics",
+          width: 1717,
+          height: 916,
+          alt: "Shreyshth Sharma | Understand the business. Test the numbers.",
         },
       ],
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: "Shreyshth Sharma — Analysis that holds up in the room",
+      title: "Shreyshth Sharma | Understand the Business. Test the Numbers.",
       description: "Financial research × data analytics.",
       images: [imageUrl],
     },
