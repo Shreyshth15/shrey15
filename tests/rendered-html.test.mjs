@@ -23,7 +23,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /five candidate data-center/);
   assert.match(page, /three engagement drop-off points/);
   assert.match(page, /Nobody knows what 96% of Excel means/);
-  assert.match(page, /Available immediately · Updated August 2026/);
+  assert.match(page, /Updated August 2026/);
+  assert.doesNotMatch(page, /Available immediately/);
   assert.doesNotMatch(page, /CFA|Current study|Level I exam/);
   assert.match(page, /Book 30 minutes/);
   assert.match(page, /calendar\.google\.com\/calendar\/u\/0\/appointments\/schedules/);
@@ -56,7 +57,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /Psychology minor/);
   assert.match(page, /Outside work, you&apos;ll usually find me playing the piano/);
   assert.match(page, /resetting with breathwork/);
-  assert.match(page, /I grew up in/);
+  assert.match(page, /I grew up in <strong>New Delhi<\/strong>/);
   assert.match(page, /behavior behind the numbers/);
   assert.match(page, /FC Barcelona is my club/);
   assert.match(page, />Visca<\/span> el/);
@@ -72,7 +73,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(leo, /LEO_RESPONSE_DELAY_MS = 2_000/);
   assert.match(leo, /LEO is thinking/);
   assert.doesNotMatch(leo, /English, हिंदी, and ਪੰਜਾਬੀ all work/);
-  assert.match(leo, /roots in Delhi/);
+  assert.match(leo, /grew up in New Delhi/);
   assert.match(leo, /age is not published/);
   assert.match(leo, /Psychology minor/);
   assert.match(leo, /Marquee Equity/);

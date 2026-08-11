@@ -51,7 +51,7 @@ const knowledge: KnowledgeItem[] = [
     title: "Background",
     keywords: ["background", "delhi", "india", "roots", "journey", "grew up", "location", "based"],
     answer:
-      "Shrey has roots in Delhi and has worked in New Delhi, Gurugram, and Bangalore before studying at Indiana University. He is now based in the Washington-Baltimore area and is open to opportunities nationwide. A fairly international midfield, if you ask me.",
+      "Shrey grew up in New Delhi and worked in New Delhi, Gurugram, and Bangalore before studying at Indiana University. He is now based in the Washington-Baltimore area and is open to opportunities nationwide. A fairly international midfield, if you ask me.",
     detail:
       "That path exposed him to fundraising research, real-estate finance operations, recruitment analytics, and U.S. industry projects. It is one reason the portfolio does not force finance and analytics into separate boxes.",
   },
@@ -206,7 +206,7 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
   hi: {
     "leo-help": "नमस्ते, मैं LEO हूँ। आप Shrey की पढ़ाई, अनुभव, finance, analytics, projects, skills, hobbies या role fit के बारे में पूछ सकते हैं। आप follow-up भी पूछ सकते हैं।",
     overview: "Shreyshth Sharma Indiana University से Economics और Quantitative Methods graduate हैं, साथ में Psychology minor भी है। वह financial research और analytics को जोड़कर business को समझते हैं, numbers को test करते हैं और decision को साफ बनाते हैं।",
-    background: "Shrey की जड़ें Delhi में हैं। उन्होंने New Delhi, Gurugram और Bangalore में काम किया, Indiana University में पढ़ाई की और अब Washington-Baltimore क्षेत्र में रहते हैं। वह nationwide opportunities के लिए खुले हैं।",
+    background: "Shrey New Delhi में बड़े हुए। उन्होंने New Delhi, Gurugram और Bangalore में काम किया, Indiana University में पढ़ाई की और अब Washington-Baltimore क्षेत्र में रहते हैं। वह nationwide opportunities के लिए खुले हैं।",
     "why-study": "Economics ने Shrey को incentives, markets और decisions समझने का framework दिया। Quantitative Methods इसलिए जोड़ा ताकि intuition को data से test कर सकें। Psychology ने human behavior का नजरिया जोड़ा।",
     age: "Shrey की उम्र verified portfolio या resume में public नहीं है, इसलिए मैं अनुमान नहीं लगाऊँगा। काम की जानकारी पूरी है, private details की सीमा भी साफ है।",
     education: "Shrey ने Indiana University से STEM-designated B.S. in Economics and Quantitative Methods किया है और Psychology में minor है। उन्होंने London School of Economics में Macroeconomics और Econometrics भी पढ़ी।",
@@ -227,7 +227,7 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
   pa: {
     "leo-help": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ, ਮੈਂ LEO ਹਾਂ। ਤੁਸੀਂ Shrey ਦੀ ਪੜ੍ਹਾਈ, ਤਜਰਬੇ, finance, analytics, projects, skills, hobbies ਜਾਂ role fit ਬਾਰੇ ਪੁੱਛ ਸਕਦੇ ਹੋ। Follow-up ਸਵਾਲ ਵੀ ਕਰ ਸਕਦੇ ਹੋ।",
     overview: "Shreyshth Sharma Indiana University ਤੋਂ Economics ਅਤੇ Quantitative Methods graduate ਹਨ ਅਤੇ Psychology minor ਵੀ ਕੀਤਾ ਹੈ। ਉਹ financial research ਅਤੇ analytics ਨੂੰ ਜੋੜ ਕੇ business ਸਮਝਦੇ, numbers test ਕਰਦੇ ਅਤੇ decision ਸਾਫ ਬਣਾਉਂਦੇ ਹਨ।",
-    background: "Shrey ਦੀਆਂ ਜੜ੍ਹਾਂ Delhi ਵਿੱਚ ਹਨ। ਉਹ New Delhi, Gurugram ਅਤੇ Bangalore ਵਿੱਚ ਕੰਮ ਕਰ ਚੁੱਕੇ ਹਨ, Indiana University ਵਿੱਚ ਪੜ੍ਹੇ ਹਨ ਅਤੇ ਹੁਣ Washington-Baltimore ਇਲਾਕੇ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ।",
+    background: "Shrey New Delhi ਵਿੱਚ ਵੱਡੇ ਹੋਏ। ਉਹ New Delhi, Gurugram ਅਤੇ Bangalore ਵਿੱਚ ਕੰਮ ਕਰ ਚੁੱਕੇ ਹਨ, Indiana University ਵਿੱਚ ਪੜ੍ਹੇ ਹਨ ਅਤੇ ਹੁਣ Washington-Baltimore ਇਲਾਕੇ ਵਿੱਚ ਰਹਿੰਦੇ ਹਨ।",
     "why-study": "Economics ਨੇ Shrey ਨੂੰ incentives, markets ਅਤੇ decisions ਸਮਝਣ ਦਾ framework ਦਿੱਤਾ। Quantitative Methods ਨਾਲ ਉਹ intuition ਨੂੰ data ਨਾਲ test ਕਰਦੇ ਹਨ, ਅਤੇ Psychology human behavior ਵਾਲੀ layer ਜੋੜਦੀ ਹੈ।",
     age: "Shrey ਦੀ ਉਮਰ verified portfolio ਜਾਂ resume ਵਿੱਚ public ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਮੈਂ ਅੰਦਾਜ਼ਾ ਨਹੀਂ ਲਗਾਵਾਂਗਾ। ਕੰਮ ਬਾਰੇ ਪੂਰੀ ਜਾਣਕਾਰੀ ਹੈ, private details ਦੀ ਹੱਦ ਵੀ ਸਾਫ ਹੈ।",
     education: "Shrey ਨੇ Indiana University ਤੋਂ STEM-designated B.S. in Economics and Quantitative Methods ਕੀਤਾ ਹੈ ਅਤੇ Psychology ਵਿੱਚ minor ਹੈ। ਉਹ London School of Economics ਵਿੱਚ Macroeconomics ਅਤੇ Econometrics ਵੀ ਪੜ੍ਹੇ ਹਨ।",

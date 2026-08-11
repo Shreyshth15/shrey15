@@ -107,7 +107,7 @@ export default function Home() {
               <span className="status-dot" aria-hidden="true" />
               Washington–Baltimore · Open nationwide
             </div>
-            <p className="hero-status">Available immediately · Updated August 2026.</p>
+            <p className="hero-status">Updated August 2026.</p>
             <p className="eyebrow">Financial research × data analytics</p>
             <h1 id="hero-title">
               Understand the business.
@@ -357,7 +357,7 @@ export default function Home() {
             <p className="eyebrow">04 / About</p>
             <h2 id="about-title">Curiosity brought me to economics. Evidence led me to quant.</h2>
             <p className="about-lead">
-              I grew up in <strong>Delhi</strong> and came to Indiana University curious
+              I grew up in <strong>New Delhi</strong> and came to Indiana University curious
               about why people, businesses, and markets make the choices they do.
               Economics gave me the language for <strong>incentives and trade-offs</strong>.
               I added Quantitative Methods because I did not want to stop at intuition;

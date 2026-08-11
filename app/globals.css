@@ -212,7 +212,7 @@ img {
 .hero-status {
   margin: 0 0 1.75rem 1.45rem;
   color: var(--muted);
-  font: 600 0.64rem var(--font-geist-mono);
+  font: 600 0.58rem var(--font-geist-mono);
 }
 
 .hero h1 {
@@ -2159,7 +2159,7 @@ input[type="range"] {
 
   .hero-status {
     margin: 0 0 1.5rem 1.4rem;
-    font-size: 0.56rem;
+    font-size: 0.52rem;
   }
 
   .hero h1 {
