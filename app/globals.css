@@ -1546,12 +1546,12 @@ input[type="range"] {
 
 .visca-blue {
   color: var(--blue);
+  font-weight: 760;
 }
 
 .barca-red {
-  padding: 0.04em 0.2em;
-  background: #b51f36;
-  color: var(--white);
+  color: #a50044;
+  font-weight: 760;
 }
 
 .education-list {

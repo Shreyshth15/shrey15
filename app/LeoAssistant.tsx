@@ -175,9 +175,9 @@ const knowledge: KnowledgeItem[] = [
     title: "Outside work",
     keywords: ["hobby", "hobbies", "outside work", "personal", "piano", "running", "run", "meditation", "breathwork", "philosophy", "barca", "barcelona", "football", "leo"],
     answer:
-      "Outside of work Shrey plays the piano, runs, and reads philosophy. FC Barcelona is his club, and when they are playing, everything else waits. Visca Barça.",
+      "Outside work, you'll usually find Shrey playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is his club, and when they are playing, everything else can wait. Visca el Barça.",
     detail:
-      "The mix is equal parts rhythm, endurance, and curiosity: learning a piece at the piano, settling into a long run, or finding an idea that challenges his own. Barça supplies the weekly stress test.",
+      "The mix is equal parts rhythm, endurance, curiosity, and reset: learning a piece at the piano, settling into a long run, finding an idea that challenges his own, or slowing down through breathwork. Barça supplies the weekly stress test.",
   },
   {
     id: "languages",
@@ -220,7 +220,7 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
     roles: "Shrey investment और credit research, corporate finance, transaction support, portfolio analytics और finance-focused consulting की entry-level roles target कर रहे हैं।",
     "why-hire": "Shrey को hire करने की मजबूत वजह यह है कि वह पूरा analyst loop संभाल सकते हैं: business question समझना, context research करना, evidence analyze करना और decision साफ तरीके से explain करना। उन्होंने यह pattern investment research, finance operations और client analytics में दिखाया है।",
     growth: "Shrey early-career हैं। Credit underwriting, structured finance और transaction execution में direct professional depth अभी बननी है। उनकी ताकत research, finance और analytics की credible foundation है, बिना उस अनुभव का दावा किए जो अभी हासिल नहीं हुआ।",
-    personal: "काम के बाहर Shrey piano बजाते हैं, दौड़ते हैं और philosophy पढ़ते हैं। FC Barcelona उनका club है, और match के समय बाकी सब इंतज़ार करता है। Visca Barça.",
+    personal: "काम के बाहर Shrey piano बजाते हैं, दौड़ते हैं, philosophy पढ़ते हैं और breathwork से reset करते हैं। FC Barcelona उनका club है, और match के समय बाकी सब इंतज़ार करता है। Visca el Barça.",
     languages: "Shrey fluent English बोलते हैं और Hindi तथा Punjabi के native speaker हैं। उन्हें basic Spanish भी आती है। मैं भी Hindi और Punjabi में portfolio questions का जवाब दे सकता हूँ।",
     contact: "आप नीचे दिए buttons से Shrey को email कर सकते हैं, 30-minute conversation book कर सकते हैं या resume खोल सकते हैं।",
   },
@@ -241,7 +241,7 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
     roles: "Shrey investment ਅਤੇ credit research, corporate finance, transaction support, portfolio analytics ਅਤੇ finance-focused consulting ਦੀਆਂ entry-level roles target ਕਰ ਰਹੇ ਹਨ।",
     "why-hire": "Shrey ਨੂੰ hire ਕਰਨ ਦੀ ਮਜ਼ਬੂਤ ਵਜ੍ਹਾ ਇਹ ਹੈ ਕਿ ਉਹ ਪੂਰਾ analyst loop ਸੰਭਾਲ ਸਕਦੇ ਹਨ: business question ਸਮਝਣਾ, context research ਕਰਨਾ, evidence analyze ਕਰਨਾ ਅਤੇ decision ਸਾਫ ਤਰੀਕੇ ਨਾਲ explain ਕਰਨਾ। ਇਹ pattern ਉਨ੍ਹਾਂ ਨੇ investment research, finance operations ਅਤੇ client analytics ਵਿੱਚ ਦਿਖਾਇਆ ਹੈ।",
     growth: "Shrey early-career ਹਨ। Credit underwriting, structured finance ਅਤੇ transaction execution ਵਿੱਚ direct professional depth ਹਾਲੇ ਬਣਨੀ ਹੈ। ਉਨ੍ਹਾਂ ਦੀ ਤਾਕਤ research, finance ਅਤੇ analytics ਦੀ credible foundation ਹੈ, ਬਿਨਾਂ ਨਾ-ਕੀਤੇ experience ਦਾ ਦਾਅਵਾ ਕੀਤੇ।",
-    personal: "ਕੰਮ ਤੋਂ ਬਾਹਰ Shrey piano ਵਜਾਉਂਦੇ, ਦੌੜਦੇ ਅਤੇ philosophy ਪੜ੍ਹਦੇ ਹਨ। FC Barcelona ਉਨ੍ਹਾਂ ਦਾ club ਹੈ, ਅਤੇ match ਵੇਲੇ ਬਾਕੀ ਸਭ ਕੁਝ ਉਡੀਕਦਾ ਹੈ। Visca Barça.",
+    personal: "ਕੰਮ ਤੋਂ ਬਾਹਰ Shrey piano ਵਜਾਉਂਦੇ, ਦੌੜਦੇ, philosophy ਪੜ੍ਹਦੇ ਅਤੇ breathwork ਨਾਲ reset ਕਰਦੇ ਹਨ। FC Barcelona ਉਨ੍ਹਾਂ ਦਾ club ਹੈ, ਅਤੇ match ਵੇਲੇ ਬਾਕੀ ਸਭ ਕੁਝ ਉਡੀਕਦਾ ਹੈ। Visca el Barça.",
     languages: "Shrey fluent English ਬੋਲਦੇ ਹਨ ਅਤੇ Hindi ਤੇ Punjabi ਦੇ native speaker ਹਨ। ਉਨ੍ਹਾਂ ਨੂੰ basic Spanish ਵੀ ਆਉਂਦੀ ਹੈ। ਮੈਂ ਵੀ Hindi ਅਤੇ Punjabi ਵਿੱਚ portfolio questions ਦੇ ਜਵਾਬ ਦੇ ਸਕਦਾ ਹਾਂ।",
     contact: "ਹੇਠਾਂ ਦਿੱਤੇ buttons ਨਾਲ ਤੁਸੀਂ Shrey ਨੂੰ email ਕਰ ਸਕਦੇ ਹੋ, 30-minute conversation book ਕਰ ਸਕਦੇ ਹੋ ਜਾਂ resume ਖੋਲ੍ਹ ਸਕਦੇ ਹੋ।",
   },

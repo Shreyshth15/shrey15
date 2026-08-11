@@ -382,9 +382,9 @@ export default function Home() {
               </div>
             </div>
             <p className="about-personal">
-              Outside of work I play the piano, run, and read philosophy. FC Barcelona is my club, and when they&apos;re playing, everything else waits.{" "}
-              <strong className="visca-blue">Visca</strong>{" "}
-              <strong className="barca-red">Barça.</strong>
+              Outside work, you&apos;ll usually find me playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is my club, and when they&apos;re playing, everything else can wait.{" "}
+              <span className="visca-blue">Visca</span> el{" "}
+              <span className="barca-red">Barça.</span>
             </p>
           </div>
         </section>

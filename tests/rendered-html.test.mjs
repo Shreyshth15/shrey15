@@ -54,10 +54,12 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /Applied work/);
   assert.match(page, /Curiosity brought me to economics/);
   assert.match(page, /Psychology minor/);
-  assert.match(page, /Outside of work I play the piano, run, and read philosophy/);
+  assert.match(page, /Outside work, you&apos;ll usually find me playing the piano/);
+  assert.match(page, /resetting with breathwork/);
   assert.match(page, /I grew up in/);
   assert.match(page, /behavior behind the numbers/);
   assert.match(page, /FC Barcelona is my club/);
+  assert.match(page, />Visca<\/span> el/);
   assert.match(page, /visca-blue/);
   assert.match(page, /barca-red/);
   assert.match(page, /Role focus/);
