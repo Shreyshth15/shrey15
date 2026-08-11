@@ -139,9 +139,9 @@ const knowledge: KnowledgeItem[] = [
     title: "Selected projects",
     keywords: ["projects", "portfolio", "selected work", "built", "build", "ubi", "intel", "recording academy", "simulation", "site selection", "audience"],
     answer:
-      "The portfolio features three interactive projects: a UBI labor-supply sensitivity model, an Intel data-center site-selection framework, and Recording Academy audience analytics organized around reach, engage, and retain. Each one shows the assumptions and evidence boundary, not just the polished output.",
+      "The portfolio features three interactive projects: a UBI labor-supply sensitivity model, an Intel data-center site-selection framework, and Recording Academy audience analytics organized around reach, engage, and retain. Each one now states the outcome, not just the scope.",
     detail:
-      "The UBI project shows sensitivity to elasticity assumptions. Intel shows how changing criteria weights changes the decision lens. Recording Academy shows where to inspect audience drop-off across reach, engagement, and retention.",
+      "The UBI project shows sensitivity to elasticity assumptions. Intel ranks anonymized Sites A through E and changes the winner as the criteria weights move. Recording Academy shows where to inspect audience drop-off across reach, engagement, and retention.",
   },
   {
     id: "roles",
@@ -175,9 +175,9 @@ const knowledge: KnowledgeItem[] = [
     title: "Outside work",
     keywords: ["hobby", "hobbies", "outside work", "personal", "piano", "running", "run", "meditation", "breathwork", "philosophy", "barca", "barcelona", "football", "leo"],
     answer:
-      "Outside work, Shrey plays piano, runs, practices meditation and breathwork, and reads philosophy and different schools of thought. He is also a committed FC Barcelona supporter. Some discipline, some curiosity, and one club that regularly tests both (Visca Barça).",
+      "Outside of work Shrey plays the piano, runs, and reads philosophy. FC Barcelona is his club, and when they are playing, everything else waits. Visca Barça.",
     detail:
-      "The common thread is curiosity and rhythm: learning a piece at the piano, settling into a long run, slowing down through breathwork, or finding an idea that challenges his own. Barça is less calming, but loyalty has its costs.",
+      "The mix is equal parts rhythm, endurance, and curiosity: learning a piece at the piano, settling into a long run, or finding an idea that challenges his own. Barça supplies the weekly stress test.",
   },
   {
     id: "languages",
@@ -185,13 +185,6 @@ const knowledge: KnowledgeItem[] = [
     keywords: ["language", "languages", "hindi", "punjabi", "spanish", "english", "speak"],
     answer:
       "Shrey speaks fluent English and is a native Hindi and Punjabi speaker. He also has basic Spanish. Enough to discuss the work in several languages and complain about a referee in at least one more.",
-  },
-  {
-    id: "cfa",
-    title: "CFA study",
-    keywords: ["cfa", "level 1", "level i", "candidate", "exam", "current study"],
-    answer:
-      "Shrey is preparing with CFA Program Level I curriculum materials and intends to sit for the Level I exam. He does not present himself as an active CFA candidate unless that status is current and confirmed.",
   },
   {
     id: "contact",
@@ -205,7 +198,7 @@ const knowledge: KnowledgeItem[] = [
     title: "What LEO knows",
     keywords: ["what can you do", "what do you know", "help me", "ask leo", "topics", "capabilities"],
     answer:
-      "I can discuss Shrey's background, education, Psychology minor, experience, finance work, analytics, communication, projects, tools, role fit, languages, CFA study, hobbies, and contact options. Follow-up questions work too. I am a conversation, not a dropdown wearing a football shirt.",
+      "I can discuss Shrey's background, education, Psychology minor, experience, finance work, analytics, communication, projects, tools, role fit, languages, hobbies, and contact options. Follow-up questions work too. I am a conversation, not a dropdown wearing a football shirt.",
   },
 ];
 
@@ -223,13 +216,12 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
     "financial-analysis": "Shrey financial statements, business drivers, spending, cost और variance patterns देखते हैं। DLF में उन्होंने expense reporting को standardize किया और vendor तथा departmental spending analyze की।",
     analytics: "Shrey Excel, PowerPoint, Tableau, SQL, Python और R इस्तेमाल करते हैं। वह data clean करते हैं, dashboards और decision models बनाते हैं, sensitivity analysis चलाते हैं और result साफ तरीके से समझाते हैं।",
     communication: "Shrey dashboards, presentations और investor materials को software के हिसाब से नहीं, decision के हिसाब से बनाते हैं। उनका लक्ष्य है कि stakeholder question, evidence, trade-off और सीमा तुरंत समझ सके।",
-    projects: "Portfolio में तीन interactive projects हैं: UBI labor-supply sensitivity model, Intel data-center site-selection framework और Recording Academy audience analytics। हर project assumptions और evidence boundary साफ दिखाता है।",
+    projects: "Portfolio में तीन interactive projects हैं: UBI labor-supply sensitivity model, Intel data-center site-selection framework और Recording Academy audience analytics। Intel model में weights बदलने पर Site A से E की ranking और winner बदलते हैं।",
     roles: "Shrey investment और credit research, corporate finance, transaction support, portfolio analytics और finance-focused consulting की entry-level roles target कर रहे हैं।",
     "why-hire": "Shrey को hire करने की मजबूत वजह यह है कि वह पूरा analyst loop संभाल सकते हैं: business question समझना, context research करना, evidence analyze करना और decision साफ तरीके से explain करना। उन्होंने यह pattern investment research, finance operations और client analytics में दिखाया है।",
     growth: "Shrey early-career हैं। Credit underwriting, structured finance और transaction execution में direct professional depth अभी बननी है। उनकी ताकत research, finance और analytics की credible foundation है, बिना उस अनुभव का दावा किए जो अभी हासिल नहीं हुआ।",
-    personal: "काम के बाहर Shrey piano बजाते हैं, running करते हैं, meditation और breathwork practice करते हैं और philosophy पढ़ते हैं। वह Barça fan भी हैं। मेरा नाम LEO है, इसलिए neutrality की उम्मीद मत रखिए। Visca Barça.",
+    personal: "काम के बाहर Shrey piano बजाते हैं, दौड़ते हैं और philosophy पढ़ते हैं। FC Barcelona उनका club है, और match के समय बाकी सब इंतज़ार करता है। Visca Barça.",
     languages: "Shrey fluent English बोलते हैं और Hindi तथा Punjabi के native speaker हैं। उन्हें basic Spanish भी आती है। मैं भी Hindi और Punjabi में portfolio questions का जवाब दे सकता हूँ।",
-    cfa: "Shrey CFA Program Level I curriculum materials से तैयारी कर रहे हैं और Level I exam देने का इरादा रखते हैं। वह current confirmation के बिना खुद को active CFA candidate नहीं बताते।",
     contact: "आप नीचे दिए buttons से Shrey को email कर सकते हैं, 30-minute conversation book कर सकते हैं या resume खोल सकते हैं।",
   },
   pa: {
@@ -245,13 +237,12 @@ const localizedAnswers: Record<"hi" | "pa", Record<string, string>> = {
     "financial-analysis": "Shrey financial statements, business drivers, spending, cost ਅਤੇ variance patterns ਵੇਖਦੇ ਹਨ। DLF ਵਿੱਚ ਉਨ੍ਹਾਂ ਨੇ expense reporting standardize ਕੀਤੀ ਅਤੇ vendor ਤੇ departmental spending analyze ਕੀਤੀ।",
     analytics: "Shrey Excel, PowerPoint, Tableau, SQL, Python ਅਤੇ R ਵਰਤਦੇ ਹਨ। ਉਹ data clean ਕਰਦੇ, dashboards ਅਤੇ decision models ਬਣਾਉਂਦੇ, sensitivity analysis ਚਲਾਉਂਦੇ ਅਤੇ result ਸਾਫ ਤਰੀਕੇ ਨਾਲ ਸਮਝਾਉਂਦੇ ਹਨ।",
     communication: "Shrey dashboards, presentations ਅਤੇ investor materials ਨੂੰ software ਨਹੀਂ, decision ਦੇ ਆਲੇ-ਦੁਆਲੇ ਬਣਾਉਂਦੇ ਹਨ ਤਾਂ ਜੋ stakeholder question, evidence, trade-off ਅਤੇ boundary ਤੁਰੰਤ ਸਮਝ ਸਕੇ।",
-    projects: "Portfolio ਵਿੱਚ ਤਿੰਨ interactive projects ਹਨ: UBI labor-supply sensitivity model, Intel data-center site-selection framework ਅਤੇ Recording Academy audience analytics। ਹਰ project assumptions ਅਤੇ evidence boundary ਸਾਫ ਦਿਖਾਉਂਦਾ ਹੈ।",
+    projects: "Portfolio ਵਿੱਚ ਤਿੰਨ interactive projects ਹਨ: UBI labor-supply sensitivity model, Intel data-center site-selection framework ਅਤੇ Recording Academy audience analytics। Intel model ਵਿੱਚ weights ਬਦਲਣ ਨਾਲ Site A ਤੋਂ E ਦੀ ranking ਅਤੇ winner ਬਦਲਦੇ ਹਨ।",
     roles: "Shrey investment ਅਤੇ credit research, corporate finance, transaction support, portfolio analytics ਅਤੇ finance-focused consulting ਦੀਆਂ entry-level roles target ਕਰ ਰਹੇ ਹਨ।",
     "why-hire": "Shrey ਨੂੰ hire ਕਰਨ ਦੀ ਮਜ਼ਬੂਤ ਵਜ੍ਹਾ ਇਹ ਹੈ ਕਿ ਉਹ ਪੂਰਾ analyst loop ਸੰਭਾਲ ਸਕਦੇ ਹਨ: business question ਸਮਝਣਾ, context research ਕਰਨਾ, evidence analyze ਕਰਨਾ ਅਤੇ decision ਸਾਫ ਤਰੀਕੇ ਨਾਲ explain ਕਰਨਾ। ਇਹ pattern ਉਨ੍ਹਾਂ ਨੇ investment research, finance operations ਅਤੇ client analytics ਵਿੱਚ ਦਿਖਾਇਆ ਹੈ।",
     growth: "Shrey early-career ਹਨ। Credit underwriting, structured finance ਅਤੇ transaction execution ਵਿੱਚ direct professional depth ਹਾਲੇ ਬਣਨੀ ਹੈ। ਉਨ੍ਹਾਂ ਦੀ ਤਾਕਤ research, finance ਅਤੇ analytics ਦੀ credible foundation ਹੈ, ਬਿਨਾਂ ਨਾ-ਕੀਤੇ experience ਦਾ ਦਾਅਵਾ ਕੀਤੇ।",
-    personal: "ਕੰਮ ਤੋਂ ਬਾਹਰ Shrey piano ਵਜਾਉਂਦੇ, running ਕਰਦੇ, meditation ਅਤੇ breathwork practice ਕਰਦੇ ਅਤੇ philosophy ਪੜ੍ਹਦੇ ਹਨ। ਉਹ Barça fan ਵੀ ਹਨ। ਮੇਰਾ ਨਾਮ LEO ਹੈ, ਇਸ ਲਈ neutrality ਦੀ ਉਮੀਦ ਨਾ ਰੱਖੋ। Visca Barça.",
+    personal: "ਕੰਮ ਤੋਂ ਬਾਹਰ Shrey piano ਵਜਾਉਂਦੇ, ਦੌੜਦੇ ਅਤੇ philosophy ਪੜ੍ਹਦੇ ਹਨ। FC Barcelona ਉਨ੍ਹਾਂ ਦਾ club ਹੈ, ਅਤੇ match ਵੇਲੇ ਬਾਕੀ ਸਭ ਕੁਝ ਉਡੀਕਦਾ ਹੈ। Visca Barça.",
     languages: "Shrey fluent English ਬੋਲਦੇ ਹਨ ਅਤੇ Hindi ਤੇ Punjabi ਦੇ native speaker ਹਨ। ਉਨ੍ਹਾਂ ਨੂੰ basic Spanish ਵੀ ਆਉਂਦੀ ਹੈ। ਮੈਂ ਵੀ Hindi ਅਤੇ Punjabi ਵਿੱਚ portfolio questions ਦੇ ਜਵਾਬ ਦੇ ਸਕਦਾ ਹਾਂ।",
-    cfa: "Shrey CFA Program Level I curriculum materials ਨਾਲ ਤਿਆਰੀ ਕਰ ਰਹੇ ਹਨ ਅਤੇ Level I exam ਦੇਣ ਦਾ ਇਰਾਦਾ ਰੱਖਦੇ ਹਨ। Current confirmation ਤੋਂ ਬਿਨਾਂ ਉਹ ਆਪਣੇ ਆਪ ਨੂੰ active CFA candidate ਨਹੀਂ ਕਹਿੰਦੇ।",
     contact: "ਹੇਠਾਂ ਦਿੱਤੇ buttons ਨਾਲ ਤੁਸੀਂ Shrey ਨੂੰ email ਕਰ ਸਕਦੇ ਹੋ, 30-minute conversation book ਕਰ ਸਕਦੇ ਹੋ ਜਾਂ resume ਖੋਲ੍ਹ ਸਕਦੇ ਹੋ।",
   },
 };
