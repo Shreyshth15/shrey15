@@ -280,7 +280,7 @@ const quickQuestions = [
 const greeting: Message = {
   id: 0,
   role: "leo",
-  text: "Hey, I’m LEO. I know Shrey’s work, projects, and the story behind both. Ask me anything. If it is not in the scouting report, I will say so. Barça opinions may be slightly biased.",
+  text: "Hey, I’m LEO. I know Shrey’s work, projects, and the story behind both. Ask me anything.",
 };
 
 const normalize = (value: string) =>
