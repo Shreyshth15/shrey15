@@ -50,7 +50,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
 
   assert.match(leo, /AI assistant/);
   assert.match(leo, /Hey, I’m LEO/);
-  assert.match(leo, /Barça opinions may be slightly biased/);
+  assert.match(leo, /the story behind both\. Ask me anything\./);
+  assert.doesNotMatch(leo, /Barça opinions may be slightly biased/);
   assert.match(leo, /LEO_RESPONSE_DELAY_MS = 2_000/);
   assert.match(leo, /LEO is thinking/);
   assert.doesNotMatch(leo, /English, हिंदी, and ਪੰਜਾਬੀ all work/);
