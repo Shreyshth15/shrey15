@@ -48,7 +48,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /Role focus/);
   assert.doesNotMatch(page, /—/);
 
-  assert.match(leo, /Shrey&apos;s portfolio assistant|Shrey's portfolio assistant/);
+  assert.match(leo, /AI assistant/);
   assert.match(leo, /roots in Delhi/);
   assert.match(leo, /age is not published/);
   assert.match(leo, /Psychology minor/);
@@ -56,7 +56,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(leo, /UBI labor-supply sensitivity model/);
   assert.match(leo, /Book 30 min/);
   assert.match(leo, /verified scouting report/i);
-  assert.match(leo, /English · हिंदी · ਪੰਜਾਬੀ/);
+  assert.match(leo, /Verified answers/);
   assert.match(leo, /detectLanguage/);
   assert.match(leo, /previousTopic/);
   assert.match(leo, /financial-analysis/);
