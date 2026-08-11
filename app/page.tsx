@@ -22,7 +22,7 @@ const capabilities = [
     number: "01",
     title: "Finance research",
     does: "Research companies, sectors, funding context, and competitive position; turn the evidence into a clear point of view.",
-    why: "It shows where deeper diligence—and capital—may deserve attention.",
+    why: "It shows where deeper diligence and capital may deserve attention.",
     proof: "Marquee Equity · company and sector research",
   },
   {
@@ -42,7 +42,7 @@ const capabilities = [
   {
     number: "04",
     title: "Communicate the call",
-    does: "Build dashboards, presentations, and investor materials around the decision—not the software used to make them.",
+    does: "Build dashboards, presentations, and investor materials around the decision, not the software used to make them.",
     why: "A result only matters if the next person can understand and use it.",
     proof: "Recording Academy reporting · Marquee investor materials",
   },
@@ -112,10 +112,11 @@ export default function Home() {
               <em> in the room.</em>
             </h1>
             <p className="hero-intro">
-              I&apos;m <strong>Shreyshth Sharma</strong>—an Economics and
-              Quantitative Methods graduate who researches companies, examines
-              financial and operating data, and builds decision tools for teams
-              where finance judgment and analytical rigor belong together.
+              I&apos;m <strong>Shreyshth Sharma</strong>, an Economics and
+              Quantitative Methods graduate who <strong>researches companies</strong>,
+              examines <strong>financial and operating data</strong>, and builds
+              <strong> decision tools</strong> for teams where finance judgment and
+              analytical rigor belong together.
             </p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">
@@ -165,16 +166,16 @@ export default function Home() {
 
         <section className="proof-strip" aria-label="Professional positioning">
           <article>
-            <span>Evidence</span>
-            <p>Company and sector research · Investor materials · Operating-spend analysis · Intel decision framework · UBI sensitivity model · Client dashboards</p>
+            <span>Track record</span>
+            <p>Company research · Investor materials · Spend analysis · Decision models · Sensitivity testing · Client dashboards</p>
           </article>
           <article>
             <span>Toolkit</span>
             <p>Excel · PowerPoint · Tableau · SQL · Python · R</p>
           </article>
           <article>
-            <span>Role direction</span>
-            <p>Investment and credit research · Corporate finance and transaction support · Portfolio analytics</p>
+            <span>Role focus</span>
+            <p>Investment research · Credit · Corporate finance · Transactions · Portfolio analytics</p>
           </article>
         </section>
 
@@ -214,7 +215,7 @@ export default function Home() {
                 </div>
                 <div>
                   <span>Boundary</span>
-                  <p>Illustrative partial-equilibrium model—not a causal estimate or policy forecast.</p>
+                  <p>Illustrative partial-equilibrium model, not a causal estimate or policy forecast.</p>
                 </div>
               </div>
             </div>
@@ -296,7 +297,7 @@ export default function Home() {
         <section className="section experience-section" id="experience" aria-labelledby="experience-title">
           <div className="section-heading compact-heading">
             <p className="eyebrow">02 / Experience</p>
-            <h2 id="experience-title">Four roles. One habit: make the evidence useful.</h2>
+            <h2 id="experience-title">Different desks. Same standard.</h2>
           </div>
           <ExperienceExplorer />
         </section>
@@ -310,8 +311,8 @@ export default function Home() {
             <p className="eyebrow">03 / Capabilities</p>
             <h2 id="capabilities-title">What I actually do.</h2>
             <p>
-              Financial markets, modeling, and communication—without the 96%
-              skill bars. Nobody knows what 96% of Excel means.
+              Financial markets, modeling, and communication. No 96% skill bars.
+              Nobody knows what 96% of Excel means.
             </p>
           </div>
           <div className="capability-grid">
@@ -348,22 +349,23 @@ export default function Home() {
           </div>
           <div className="about-copy">
             <p className="eyebrow">04 / About</p>
-            <h2 id="about-title">The question and the numbers belong together.</h2>
+            <h2 id="about-title">Numbers tell you what happened. I wanted to understand why.</h2>
             <p className="about-lead">
-              I studied economics because I care about the question behind the
-              number, and quantitative methods because I wanted a stronger way
-              to test it. Since then, I&apos;ve worked across investment research,
-              finance operations, and client-facing analytics.
+              Economics gave me the language for <strong>incentives, markets, and
+              decisions</strong>. I added Quantitative Methods because intuition is
+              useful, but I wanted the tools to test it. Together, they taught me
+              to <strong>start with the business question</strong> and earn the answer
+              with evidence.
             </p>
             <p className="about-target">
-              I&apos;m targeting teams where financial judgment and analytical
-              execution live in the same role—across investment and credit
-              research, corporate finance and transaction support, portfolio
-              analytics, and finance-focused consulting.
+              That mix followed me into <strong>company research, finance operations,
+              and client analytics</strong>. I want to keep using it where the stakes
+              are real: study the business, question the assumptions, and help make the call.
             </p>
             <p className="about-personal">
-              Outside the spreadsheet: football, markets, philosophy, and the
-              gym. Enough range to stay curious—and talk like a person, not a dashboard.
+              When the laptop closes, I am usually lifting, reading philosophy,
+              or watching Barça. Markets somehow follow me anyway. The loyalty
+              is permanent. <strong>Visca Barça.</strong>
             </p>
             <div className="education-list">
               <div>
