@@ -56,7 +56,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(leo, /UBI labor-supply sensitivity model/);
   assert.match(leo, /Book 30 min/);
   assert.match(leo, /verified scouting report/i);
-  assert.match(leo, /English · हिंदी · ਪੰਜਾਬੀ/);
+  assert.match(leo, /Verified answers/);
   assert.match(leo, /detectLanguage/);
   assert.match(leo, /previousTopic/);
   assert.match(leo, /financial-analysis/);

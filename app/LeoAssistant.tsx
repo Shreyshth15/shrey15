@@ -452,7 +452,7 @@ export function LeoAssistant() {
           </header>
 
           <div className="leo-source">
-            <span /> Verified answers · English · हिंदी · ਪੰਜਾਬੀ
+            <span /> Verified answers
           </div>
 
           <div className="leo-conversation" ref={conversationRef} aria-live="polite">
