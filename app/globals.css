@@ -1665,6 +1665,42 @@ input[type="range"] {
   color: var(--white);
 }
 
+.leo-typing {
+  width: max-content;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+}
+
+.leo-typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue);
+  animation: leo-thinking 900ms ease-in-out infinite alternate;
+}
+
+.leo-typing i:nth-child(2) {
+  animation-delay: 150ms;
+}
+
+.leo-typing i:nth-child(3) {
+  animation-delay: 300ms;
+}
+
+@keyframes leo-thinking {
+  from {
+    opacity: 0.35;
+    transform: translateY(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+
 .leo-quick {
   padding: 0 1rem 0.9rem;
   display: flex;
@@ -1687,6 +1723,13 @@ input[type="range"] {
 .leo-quick button:focus-visible {
   background: var(--ink);
   color: var(--white);
+}
+
+.leo-quick button:disabled,
+.leo-form input:disabled,
+.leo-form button:disabled {
+  cursor: wait;
+  opacity: 0.62;
 }
 
 .leo-form {

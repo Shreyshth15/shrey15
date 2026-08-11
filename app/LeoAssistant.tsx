@@ -28,6 +28,8 @@ type AnswerResult = {
 const bookingUrl =
   "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ2KI9iKlYUYG7eE8OJuNifjKdTYUQn3_oGtvD-kDc9J_CmYZVAA_8Dps8k6zEhm_HSa7YtAXnOm?gv=true";
 
+const LEO_RESPONSE_DELAY_MS = 2_000;
+
 const knowledge: KnowledgeItem[] = [
   {
     id: "overview",
@@ -273,14 +275,12 @@ const quickQuestions = [
   "Why economics and quant?",
   "What has he built?",
   "What is he like outside work?",
-  "हिंदी में बात करें",
-  "ਪੰਜਾਬੀ ਵਿੱਚ ਗੱਲ ਕਰੋ",
 ];
 
 const greeting: Message = {
   id: 0,
   role: "leo",
-  text: "Hi, I am LEO. I know Shrey's work, projects, background, and the important part: Barça. Ask naturally, then follow up. English, हिंदी, and ਪੰਜਾਬੀ all work.",
+  text: "Hey, I’m LEO. I know Shrey’s work, projects, and the story behind both. Ask me anything. If it is not in the scouting report, I will say so. Barça opinions may be slightly biased.",
 };
 
 const normalize = (value: string) =>
@@ -380,10 +380,13 @@ export function LeoAssistant() {
   const [question, setQuestion] = useState("");
   const [language, setLanguage] = useState<BotLanguage>("en");
   const [messages, setMessages] = useState<Message[]>([greeting]);
+  const [thinking, setThinking] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const conversationRef = useRef<HTMLDivElement>(null);
   const nextMessageId = useRef(1);
   const lastTopic = useRef<string | null>(null);
+  const thinkingRef = useRef(false);
+  const replyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     if (open) {
@@ -408,21 +411,36 @@ export function LeoAssistant() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, []);
 
+  useEffect(() => () => {
+    if (replyTimer.current) clearTimeout(replyTimer.current);
+  }, []);
+
   const ask = (value: string) => {
     const trimmed = value.trim();
-    if (!trimmed) return;
+    if (!trimmed || thinkingRef.current) return;
 
     const nextId = nextMessageId.current;
     nextMessageId.current += 2;
     const response = answerQuestion(trimmed, lastTopic.current, language);
-    lastTopic.current = response.topic;
-    setLanguage(response.language);
+    thinkingRef.current = true;
+    setThinking(true);
     setMessages((current) => [
       ...current,
       { id: nextId, role: "visitor", text: trimmed },
-      { id: nextId + 1, role: "leo", text: response.text },
     ]);
     setQuestion("");
+
+    replyTimer.current = setTimeout(() => {
+      lastTopic.current = response.topic;
+      setLanguage(response.language);
+      setMessages((current) => [
+        ...current,
+        { id: nextId + 1, role: "leo", text: response.text },
+      ]);
+      thinkingRef.current = false;
+      setThinking(false);
+      replyTimer.current = null;
+    }, LEO_RESPONSE_DELAY_MS);
   };
 
   const submit = (event: FormEvent<HTMLFormElement>) => {
@@ -455,19 +473,34 @@ export function LeoAssistant() {
             <span /> Verified answers
           </div>
 
-          <div className="leo-conversation" ref={conversationRef} aria-live="polite">
+          <div
+            className="leo-conversation"
+            ref={conversationRef}
+            aria-live="polite"
+            aria-busy={thinking}
+          >
             {messages.map((message) => (
               <div className={`leo-message ${message.role}`} key={message.id}>
                 {message.role === "leo" && <span>LEO</span>}
                 <p>{message.text}</p>
               </div>
             ))}
+            {thinking && (
+              <div className="leo-message leo-thinking" role="status">
+                <span>LEO</span>
+                <p className="leo-typing" aria-label="LEO is thinking">
+                  <i aria-hidden="true" />
+                  <i aria-hidden="true" />
+                  <i aria-hidden="true" />
+                </p>
+              </div>
+            )}
           </div>
 
           {messages.length === 1 && (
             <div className="leo-quick" aria-label="Suggested questions">
               {quickQuestions.map((item) => (
-                <button type="button" key={item} onClick={() => ask(item)}>
+                <button type="button" key={item} onClick={() => ask(item)} disabled={thinking}>
                   {item}
                 </button>
               ))}
@@ -483,8 +516,11 @@ export function LeoAssistant() {
               ref={inputRef}
               value={question}
               onChange={(event) => setQuestion(event.target.value)}
+              disabled={thinking}
               placeholder={
-                language === "hi"
+                thinking
+                  ? "LEO is thinking..."
+                  : language === "hi"
                   ? "Shrey के बारे में पूछें..."
                   : language === "pa"
                     ? "Shrey ਬਾਰੇ ਪੁੱਛੋ..."
@@ -493,7 +529,7 @@ export function LeoAssistant() {
               autoComplete="off"
               maxLength={240}
             />
-            <button type="submit" aria-label="Send question">Ask</button>
+            <button type="submit" aria-label="Send question" disabled={thinking}>Ask</button>
           </form>
 
           <div className="leo-actions">
