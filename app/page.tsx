@@ -7,7 +7,6 @@ import {
   IntelDecisionExplorer,
   UbiSimulator,
 } from "./InteractivePortfolio";
-import { LeoAssistant } from "./LeoAssistant";
 
 export const metadata: Metadata = {
   title: "Shreyshth Sharma | Financial Research & Data Analytics",
@@ -95,9 +94,12 @@ export default function Home() {
           <a href="#capabilities">Capabilities</a>
           <a href="#about">About</a>
         </nav>
-        <a className="header-cta" href="#contact">
-          Contact <span aria-hidden="true">↘</span>
-        </a>
+        <div className="header-actions">
+          <a className="header-cta" href="#contact">
+            Contact <span aria-hidden="true">↘</span>
+          </a>
+          <span className="header-update">Updated August 2026.</span>
+        </div>
       </header>
 
       <main id="main">
@@ -105,9 +107,8 @@ export default function Home() {
           <div className="hero-copy">
             <div className="status-line">
               <span className="status-dot" aria-hidden="true" />
-              Washington–Baltimore · Open nationwide
+              Washington–Baltimore · Open to relocation nationwide
             </div>
-            <p className="hero-status">Updated August 2026.</p>
             <p className="eyebrow">Financial research × data analytics</p>
             <h1 id="hero-title">
               Understand the business.
@@ -303,7 +304,7 @@ export default function Home() {
         <section className="section experience-section" id="experience" aria-labelledby="experience-title">
           <div className="section-heading compact-heading">
             <p className="eyebrow">02 / Experience</p>
-            <h2 id="experience-title">Different desks. Same standard.</h2>
+            <h2 id="experience-title">Experience across finance and analytics.</h2>
           </div>
           <ExperienceExplorer />
         </section>
@@ -355,7 +356,7 @@ export default function Home() {
           </div>
           <div className="about-copy">
             <p className="eyebrow">04 / About</p>
-            <h2 id="about-title">Curiosity brought me to economics. Evidence led me to quant.</h2>
+            <h2 id="about-title">Curiosity brought me to Economics. Evidence led me to Quant.</h2>
             <p className="about-lead">
               I grew up in <strong>New Delhi</strong> and came to Indiana University curious
               about why people, businesses, and markets make the choices they do.
@@ -378,11 +379,14 @@ export default function Home() {
               </div>
               <div>
                 <span>London School of Economics</span>
-                <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
+                <div>
+                  <p className="education-context">Summer School · Study Abroad</p>
+                  <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
+                </div>
               </div>
             </div>
             <p className="about-personal">
-              Outside work, you&apos;ll usually find me playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is my club, and when they&apos;re playing, everything else can wait.{" "}
+              Outside work, you&apos;ll usually find me playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is my club, and on match day, I&apos;m usually glued to the screen.{" "}
               <span className="visca-blue">Visca</span> el{" "}
               <span className="barca-red">Barça.</span>
             </p>
@@ -392,14 +396,14 @@ export default function Home() {
         <section className="contact-section" id="contact" aria-labelledby="contact-title">
           <div className="contact-kicker">
             <span className="status-dot" aria-hidden="true" />
-            Open nationwide
+            Finance × analytics
           </div>
           <h2 id="contact-title">
             Looking for this mix?
             <em> Let&apos;s talk.</em>
           </h2>
           <p className="contact-intro">
-            Based in Washington–Baltimore. Open nationwide to finance and analytics roles.
+            If your team values financial judgment and analytical execution, I&apos;d like to hear what you&apos;re building.
           </p>
           <div className="contact-actions">
             <a className="button button-acid" href="mailto:Shreshth2002@gmail.com">
@@ -435,7 +439,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <LeoAssistant />
     </>
   );
 }

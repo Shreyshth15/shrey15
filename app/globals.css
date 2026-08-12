@@ -145,9 +145,21 @@ img {
 }
 
 .header-cta {
-  justify-self: end;
   font-size: 0.82rem;
   font-weight: 700;
+}
+
+.header-actions {
+  justify-self: end;
+  display: grid;
+  justify-items: end;
+  gap: 0.12rem;
+}
+
+.header-update {
+  color: var(--muted);
+  font: 600 0.5rem var(--font-geist-mono);
+  letter-spacing: 0.025em;
 }
 
 .status-line,
@@ -206,13 +218,7 @@ img {
 }
 
 .hero .status-line {
-  margin-bottom: 0.45rem;
-}
-
-.hero-status {
-  margin: 0 0 1.75rem 1.45rem;
-  color: var(--muted);
-  font: 600 0.58rem var(--font-geist-mono);
+  margin-bottom: 1.75rem;
 }
 
 .hero h1 {
@@ -1579,6 +1585,14 @@ input[type="range"] {
   line-height: 1.55;
 }
 
+.education-list .education-context {
+  margin-bottom: 0.2rem;
+  color: var(--ink);
+  font: 700 0.6rem / 1.5 var(--font-geist-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
 .contact-section {
   padding: clamp(5.5rem, 10vw, 10rem) clamp(1.25rem, 5.5vw, 6.5rem) 2rem;
   background: var(--blue);
@@ -1627,329 +1641,6 @@ input[type="range"] {
 .contact-section .button-outline:hover,
 .contact-section .button-outline:focus-visible {
   box-shadow: 5px 5px 0 var(--white);
-}
-
-.leo-shell {
-  position: fixed;
-  left: 1.25rem;
-  bottom: 1.25rem;
-  z-index: 140;
-  display: grid;
-  justify-items: start;
-  gap: 0.65rem;
-}
-
-.leo-trigger {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  min-width: 0;
-  padding: 0;
-  display: grid;
-  place-items: center;
-  border: 1px solid rgba(17, 19, 15, 0.86);
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--ink) 0 49.5%, var(--blue) 50.5% 100%);
-  color: var(--white);
-  box-shadow: 0 8px 22px rgba(17, 19, 15, 0.2);
-  cursor: pointer;
-  transition: transform 180ms ease, box-shadow 180ms ease;
-}
-
-.leo-trigger:hover,
-.leo-trigger:focus-visible {
-  transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 12px 28px rgba(17, 19, 15, 0.27);
-}
-
-.leo-trigger-mark,
-.leo-avatar {
-  display: grid;
-  place-items: center;
-  background: var(--acid);
-  color: var(--ink);
-  font: 800 0.78rem var(--font-geist-mono);
-}
-
-.leo-trigger-mark {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: transparent;
-  color: var(--white);
-  font-size: 0.54rem;
-  letter-spacing: 0.1em;
-}
-
-.leo-trigger i {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 5px;
-  height: 5px;
-  border: 1.5px solid var(--white);
-  border-radius: 50%;
-  background: #55c583;
-  box-sizing: content-box;
-  animation: status-breathe 3.2s ease-in-out infinite;
-}
-
-.leo-panel {
-  width: min(380px, calc(100vw - 2.5rem));
-  max-height: min(640px, calc(100svh - 6.8rem));
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--ink) 26%, var(--line));
-  border-radius: 18px;
-  background: var(--white);
-  box-shadow: 0 24px 60px rgba(17, 19, 15, 0.22), 0 0 0 3px rgba(49, 87, 230, 0.08);
-  animation: leo-enter 190ms ease-out both;
-}
-
-@keyframes leo-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.leo-header {
-  min-height: 64px;
-  padding: 0.75rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.75rem;
-  background: var(--ink);
-  color: var(--white);
-}
-
-.leo-avatar {
-  width: 39px;
-  height: 39px;
-  border-radius: 50%;
-}
-
-.leo-header > div:nth-child(2) {
-  display: grid;
-  gap: 0.16rem;
-}
-
-.leo-header strong {
-  font: 800 0.76rem var(--font-geist-mono);
-  letter-spacing: 0.08em;
-}
-
-.leo-header span {
-  color: rgba(255, 255, 255, 0.76);
-  font-size: 0.68rem;
-}
-
-.leo-header button {
-  width: 32px;
-  height: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.46);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--white);
-  cursor: pointer;
-  font-size: 1.25rem;
-  line-height: 1;
-}
-
-.leo-source {
-  padding: 0.58rem 0.75rem;
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--paper) 78%, var(--white));
-  color: #52564d;
-  font: 0.55rem var(--font-geist-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.leo-source span {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #55c583;
-}
-
-.leo-conversation {
-  min-height: 210px;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
-}
-
-.leo-message {
-  max-width: 88%;
-}
-
-.leo-message > span {
-  display: block;
-  margin-bottom: 0.28rem;
-  color: var(--blue);
-  font: 700 0.5rem var(--font-geist-mono);
-  letter-spacing: 0.08em;
-}
-
-.leo-message p {
-  margin: 0;
-  padding: 0.75rem 0.8rem;
-  border: 1px solid var(--line);
-  border-radius: 13px 13px 13px 4px;
-  background: var(--paper);
-  color: #3e413b;
-  font-size: 0.78rem;
-  line-height: 1.58;
-}
-
-.leo-message.visitor {
-  align-self: flex-end;
-}
-
-.leo-message.visitor p {
-  border-color: var(--blue);
-  border-radius: 13px 13px 4px 13px;
-  background: var(--blue);
-  color: var(--white);
-}
-
-.leo-typing {
-  width: max-content;
-  min-width: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.28rem;
-}
-
-.leo-typing i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--blue);
-  animation: leo-thinking 900ms ease-in-out infinite alternate;
-}
-
-.leo-typing i:nth-child(2) {
-  animation-delay: 150ms;
-}
-
-.leo-typing i:nth-child(3) {
-  animation-delay: 300ms;
-}
-
-@keyframes leo-thinking {
-  from {
-    opacity: 0.35;
-    transform: translateY(2px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(-2px);
-  }
-}
-
-.leo-quick {
-  padding: 0 1rem 0.9rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.leo-quick button {
-  padding: 0.48rem 0.58rem;
-  border: 1px solid var(--ink);
-  border-radius: 999px;
-  background: var(--white);
-  color: var(--ink);
-  cursor: pointer;
-  font-size: 0.62rem;
-  transition: background 150ms ease, color 150ms ease;
-}
-
-.leo-quick button:hover,
-.leo-quick button:focus-visible {
-  background: var(--ink);
-  color: var(--white);
-}
-
-.leo-quick button:disabled,
-.leo-form input:disabled,
-.leo-form button:disabled {
-  cursor: wait;
-  opacity: 0.62;
-}
-
-.leo-form {
-  margin: 0 0.75rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  border: 1px solid var(--ink);
-  border-radius: 12px;
-  overflow: hidden;
-}
-
-.leo-form input {
-  min-width: 0;
-  padding: 0.72rem 0.75rem;
-  border: 0;
-  background: var(--white);
-  color: var(--ink);
-  font-size: 0.78rem;
-  outline: 0;
-}
-
-.leo-form input:focus {
-  box-shadow: inset 0 0 0 2px var(--orange);
-}
-
-.leo-form button {
-  padding: 0 0.9rem;
-  border: 0;
-  border-left: 1px solid var(--ink);
-  background: var(--acid);
-  color: var(--ink);
-  cursor: pointer;
-  font: 750 0.63rem var(--font-geist-mono);
-  text-transform: uppercase;
-}
-
-.leo-actions {
-  padding: 0.65rem 0.75rem 0.75rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0.4rem;
-}
-
-.leo-actions a {
-  padding: 0.52rem 0.35rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: #4c5048;
-  font: 650 0.55rem var(--font-geist-mono);
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.leo-actions a:hover,
-.leo-actions a:focus-visible {
-  border-color: var(--blue);
-  color: var(--blue);
 }
 
 @media (hover: hover) {
@@ -2155,11 +1846,6 @@ input[type="range"] {
   .hero .status-line {
     margin-bottom: 0.4rem;
     font-size: 0.58rem;
-  }
-
-  .hero-status {
-    margin: 0 0 1.5rem 1.4rem;
-    font-size: 0.52rem;
   }
 
   .hero h1 {
@@ -2401,30 +2087,6 @@ input[type="range"] {
     grid-column: 1 / -1;
   }
 
-  .leo-shell {
-    left: 0.75rem;
-    bottom: 0.75rem;
-  }
-
-  .leo-trigger {
-    width: 46px;
-    height: 46px;
-  }
-
-  .leo-panel {
-    width: calc(100vw - 1.5rem);
-    max-height: calc(100svh - 6.4rem);
-    border-radius: 16px;
-    box-shadow: 0 18px 48px rgba(17, 19, 15, 0.22), 0 0 0 3px rgba(49, 87, 230, 0.08);
-  }
-
-  .leo-conversation {
-    min-height: 180px;
-  }
-
-  .leo-form input {
-    font-size: 1rem;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
