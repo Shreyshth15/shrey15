@@ -5,11 +5,10 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 
 test("portfolio content stays evidence-led and recruiter-ready", async () => {
-  const [page, interactive, intelModel, leo] = await Promise.all([
+  const [page, interactive, intelModel] = await Promise.all([
     readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/InteractivePortfolio.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/intelModel.ts", import.meta.url), "utf8"),
-    readFile(new URL("../app/LeoAssistant.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(page, /Understand the business/);
@@ -24,6 +23,7 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /three engagement drop-off points/);
   assert.match(page, /Nobody knows what 96% of Excel means/);
   assert.match(page, /Updated August 2026/);
+  assert.match(page, /Open to relocation nationwide/);
   assert.doesNotMatch(page, /Available immediately/);
   assert.doesNotMatch(page, /CFA|Current study|Level I exam/);
   assert.match(page, /Book 30 minutes/);
@@ -49,48 +49,28 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.doesNotMatch(page, /Interactivity here is part of the analysis|LMAO/i);
   assert.doesNotMatch(page, /Typical conversation window|busy times are automatically withheld/i);
   assert.match(page, /Looking for this mix/);
-  assert.match(page, /Different desks\. Same standard/);
+  assert.match(page, /Experience across finance and analytics/);
   assert.match(page, />Visca</);
   assert.match(page, />Barça\.</);
   assert.match(page, /Applied work/);
-  assert.match(page, /Curiosity brought me to economics/);
+  assert.match(page, /Curiosity brought me to Economics/);
+  assert.match(page, /Evidence led me to Quant/);
   assert.match(page, /Psychology minor/);
   assert.match(page, /Outside work, you&apos;ll usually find me playing the piano/);
   assert.match(page, /resetting with breathwork/);
   assert.match(page, /I grew up in <strong>New Delhi<\/strong>/);
   assert.match(page, /behavior behind the numbers/);
   assert.match(page, /FC Barcelona is my club/);
+  assert.match(page, /on match day, I&apos;m usually glued to the screen/);
+  assert.match(page, /Summer School · Study Abroad/);
   assert.match(page, />Visca<\/span> el/);
   assert.match(page, /visca-blue/);
   assert.match(page, /barca-red/);
   assert.match(page, /Role focus/);
   assert.doesNotMatch(page, /—/);
 
-  assert.match(leo, /AI assistant/);
-  assert.match(leo, /Hey, I’m LEO/);
-  assert.match(leo, /the story behind both\. Ask me anything\./);
-  assert.doesNotMatch(leo, /Barça opinions may be slightly biased/);
-  assert.match(leo, /LEO_RESPONSE_DELAY_MS = 2_000/);
-  assert.match(leo, /LEO is thinking/);
-  assert.doesNotMatch(leo, /English, हिंदी, and ਪੰਜਾਬੀ all work/);
-  assert.match(leo, /grew up in New Delhi/);
-  assert.match(leo, /age is not published/);
-  assert.match(leo, /Psychology minor/);
-  assert.match(leo, /Marquee Equity/);
-  assert.match(leo, /UBI labor-supply sensitivity model/);
-  assert.match(leo, /Book 30 min/);
-  assert.match(leo, /verified scouting report/i);
-  assert.match(leo, /Verified answers/);
-  assert.match(leo, /detectLanguage/);
-  assert.match(leo, /previousTopic/);
-  assert.match(leo, /financial-analysis/);
-  assert.match(leo, /communication/);
-  assert.match(leo, /resolveEnglishIntent/);
-  assert.match(leo, /composeWhyHireAnswer/);
-  assert.match(leo, /Development areas/);
-  assert.doesNotMatch(leo, /CFA|Level I curriculum|active CFA candidate/);
-  assert.doesNotMatch(leo, /PEDRI|PedriAssistant/);
-  assert.doesNotMatch(leo, /—/);
+  assert.doesNotMatch(page, /LeoAssistant|LEO|AI assistant/);
+  await assert.rejects(access(new URL("../app/LeoAssistant.tsx", import.meta.url)));
 });
 
 test("final site has production metadata and required public assets", async () => {
