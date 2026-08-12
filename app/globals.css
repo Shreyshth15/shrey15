@@ -1567,7 +1567,7 @@ input[type="range"] {
 .education-list > div {
   padding: 1rem 0;
   display: grid;
-  grid-template-columns: 180px 1fr;
+  grid-template-columns: 220px 1fr;
   gap: 1.5rem;
   border-bottom: 1px solid var(--line);
   transition: padding 180ms ease, background 180ms ease;
@@ -1586,11 +1586,10 @@ input[type="range"] {
 }
 
 .education-list .education-context {
-  margin-bottom: 0.2rem;
+  margin-top: 0.18rem;
   color: var(--ink);
   font: 700 0.6rem / 1.5 var(--font-geist-mono);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.02em;
 }
 
 .contact-section {

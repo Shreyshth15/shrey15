@@ -378,11 +378,11 @@ export default function Home() {
                 <p>B.S. Economics &amp; Quantitative Methods (STEM) · Psychology minor</p>
               </div>
               <div>
-                <span>London School of Economics</span>
-                <div>
-                  <p className="education-context">Summer School</p>
-                  <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
+                <div className="education-institution">
+                  <span>London School of Economics</span>
+                  <p className="education-context">(Summer School)</p>
                 </div>
+                <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
               </div>
             </div>
             <p className="about-personal">
