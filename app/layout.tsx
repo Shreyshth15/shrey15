@@ -18,7 +18,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = requestHeaders.get("x-forwarded-host") ?? requestHeaders.get("host") ?? "localhost:3000";
   const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
   const origin = `${protocol}://${host}`;
-  const imageUrl = `${origin}/og-v2.jpg`;
+  const imageUrl = `${origin}/og-v3.png`;
 
   return {
     title: {
@@ -50,9 +50,9 @@ export async function generateMetadata(): Promise<Metadata> {
       images: [
         {
           url: imageUrl,
-          width: 1717,
-          height: 916,
-          alt: "Shreyshth Sharma | Understand the business. Test the numbers.",
+          width: 1200,
+          height: 630,
+          alt: "Shreyshth Sharma | Financial Research × Data Analytics",
         },
       ],
       type: "website",
