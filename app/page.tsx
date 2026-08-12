@@ -5,6 +5,7 @@ import {
   CopyEmailButton,
   ExperienceExplorer,
   IntelDecisionExplorer,
+  MobileNavigation,
   UbiSimulator,
 } from "./InteractivePortfolio";
 
@@ -88,12 +89,13 @@ export default function Home() {
           <span className="brand-mark">S15</span>
           <span className="brand-name">Shreyshth Sharma</span>
         </a>
-        <nav aria-label="Main navigation">
+        <nav className="desktop-nav" aria-label="Main navigation">
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#capabilities">Capabilities</a>
           <a href="#about">About</a>
         </nav>
+        <MobileNavigation />
         <div className="header-actions">
           <a className="header-cta" href="#contact">
             Contact <span aria-hidden="true">↘</span>
@@ -230,7 +232,7 @@ export default function Home() {
               </p>
             </div>
             <div className="project-foot">
-              <div className="tag-row" aria-label="UBI project tools">
+              <div className="tag-row" role="group" aria-label="UBI project tools">
                 <span title="Simulation logic">Python</span>
                 <span title="Scenario outputs">Pandas</span>
                 <span title="Sensitivity charts">Matplotlib</span>

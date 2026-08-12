@@ -69,6 +69,11 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /visca-blue/);
   assert.match(page, /barca-red/);
   assert.match(page, /Role focus/);
+  assert.match(page, /MobileNavigation/);
+  assert.match(page, /role="group" aria-label="UBI project tools"/);
+  assert.match(interactive, /aria-controls="mobile-navigation-panel"/);
+  assert.match(interactive, /aria-label="Mobile navigation"/);
+  assert.match(interactive, /role="group"\s*aria-label="Normalized decision weights"/);
   assert.doesNotMatch(page, /—/);
 
   assert.doesNotMatch(page, /LeoAssistant|LEO|AI assistant/);

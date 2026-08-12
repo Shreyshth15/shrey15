@@ -18,6 +18,45 @@ const formatCurrency = (value: number) =>
     maximumFractionDigits: 0,
   }).format(value);
 
+const mobileNavigationItems = [
+  { href: "#work", label: "Work", number: "01" },
+  { href: "#experience", label: "Experience", number: "02" },
+  { href: "#capabilities", label: "Capabilities", number: "03" },
+  { href: "#about", label: "About", number: "04" },
+];
+
+export function MobileNavigation() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className={isOpen ? "mobile-navigation is-open" : "mobile-navigation"}>
+      <button
+        className="mobile-nav-toggle"
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls="mobile-navigation-panel"
+        onClick={() => setIsOpen((current) => !current)}
+      >
+        <span>Menu</span>
+        <span aria-hidden="true">{isOpen ? "−" : "+"}</span>
+      </button>
+      <nav
+        className="mobile-nav-panel"
+        id="mobile-navigation-panel"
+        aria-label="Mobile navigation"
+        aria-hidden={!isOpen}
+      >
+        {mobileNavigationItems.map((item) => (
+          <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
+            <span>{item.number}</span>
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </div>
+  );
+}
+
 export function UbiSimulator() {
   const [elasticity, setElasticity] = useState(0.1);
   const [ubi, setUbi] = useState(12_000);
@@ -227,7 +266,11 @@ export function IntelDecisionExplorer() {
 
   return (
     <div className="intel-explorer">
-      <div className="intel-composition" aria-label="Normalized decision weights">
+      <div
+        className="intel-composition"
+        role="group"
+        aria-label="Normalized decision weights"
+      >
         {normalized.map((criterion) => (
           <span
             key={criterion.id}
@@ -267,7 +310,11 @@ export function IntelDecisionExplorer() {
           ))}
         </div>
 
-        <div className="site-ranking" aria-label="Weighted ranking of anonymized sites">
+        <div
+          className="site-ranking"
+          role="group"
+          aria-label="Weighted ranking of anonymized sites"
+        >
           {ranking.map((site, index) => (
             <div className={index === 0 ? "site-rank winner" : "site-rank"} key={site.id}>
               <span>
@@ -519,7 +566,7 @@ export function ExperienceExplorer() {
           </div>
         </div>
 
-        <div className="tag-row" aria-label="Relevant skills and tools">
+        <div className="tag-row" role="group" aria-label="Relevant skills and tools">
           {active.tools.map((tool) => (
             <span key={tool} title={`${tool} · used in this role`}>
               {tool}
