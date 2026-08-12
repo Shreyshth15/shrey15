@@ -380,7 +380,7 @@ export default function Home() {
               <div>
                 <span>London School of Economics</span>
                 <div>
-                  <p className="education-context">Summer School · Study Abroad</p>
+                  <p className="education-context">Summer School</p>
                   <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
                 </div>
               </div>

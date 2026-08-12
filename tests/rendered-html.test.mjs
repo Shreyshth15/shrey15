@@ -62,7 +62,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /behavior behind the numbers/);
   assert.match(page, /FC Barcelona is my club/);
   assert.match(page, /on match day, I&apos;m usually glued to the screen/);
-  assert.match(page, /Summer School · Study Abroad/);
+  assert.match(page, /Summer School/);
+  assert.doesNotMatch(page, /Study Abroad/);
   assert.match(page, />Visca<\/span> el/);
   assert.match(page, /visca-blue/);
   assert.match(page, /barca-red/);
