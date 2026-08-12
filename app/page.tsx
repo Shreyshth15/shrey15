@@ -54,7 +54,7 @@ const personSchema = {
   "@type": "Person",
   name: "Shreyshth Sharma",
   alternateName: "Shrey Sharma",
-  url: "https://shrey15.vercel.app",
+  url: "https://shreysharma15.vercel.app",
   sameAs: [
     "https://www.linkedin.com/in/shreyshth-sharma-0170",
     "https://github.com/Shreyshth15",
