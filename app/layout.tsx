@@ -42,8 +42,8 @@ export async function generateMetadata(): Promise<Metadata> {
     robots: { index: true, follow: true },
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
     openGraph: {
-      title: "Shreyshth Sharma | Understand the Business. Test the Numbers.",
-      description: "Financial research × data analytics.",
+      title: "Shreyshth Sharma",
+      description: "Financial Research × Data Analytics Portfolio",
       url: origin,
       siteName: "Shreyshth Sharma Portfolio",
       locale: "en_US",
@@ -59,8 +59,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title: "Shreyshth Sharma | Understand the Business. Test the Numbers.",
-      description: "Financial research × data analytics.",
+      title: "Shreyshth Sharma",
+      description: "Financial Research × Data Analytics Portfolio",
       images: [imageUrl],
     },
   };
