@@ -11,7 +11,8 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
     readFile(new URL("../app/intelModel.ts", import.meta.url), "utf8"),
   ]);
 
-  assert.match(page, /Understand the business/);
+  assert.match(page, /<span>Understand<\/span>/);
+  assert.match(page, /<span>the business\.<\/span>/);
   assert.match(page, /Test the numbers/);
   assert.match(page, /Financial research × data analytics/);
   assert.match(page, /How sensitive is the UBI answer/);

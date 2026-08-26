@@ -58,6 +58,44 @@ export function MobileNavigation() {
   );
 }
 
+export function MethodCard() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className={isExpanded ? "method-card is-expanded" : "method-card"}>
+      <p>How I work</p>
+      <ol>
+        <li>
+          <span>01</span> Frame the decision
+        </li>
+        <li>
+          <span>02</span> Audit the evidence
+        </li>
+        <li>
+          <span>03</span> Stress-test the answer
+        </li>
+        <li>
+          <span>04</span> Make it usable
+        </li>
+      </ol>
+      <span className="method-card-touch-hint" aria-hidden="true">
+        {isExpanded ? "Tap to reset" : "Tap to expand"}
+      </span>
+      <button
+        className="method-card-touch-toggle"
+        type="button"
+        aria-label={isExpanded ? "Return the How I work card to normal size" : "Enlarge the How I work card"}
+        aria-pressed={isExpanded}
+        onClick={() => setIsExpanded((current) => !current)}
+      >
+        <span className="sr-only">
+          {isExpanded ? "Return card to normal size" : "Enlarge card"}
+        </span>
+      </button>
+    </div>
+  );
+}
+
 export function UbiSimulator() {
   const [elasticity, setElasticity] = useState(0.1);
   const [ubi, setUbi] = useState(12_000);

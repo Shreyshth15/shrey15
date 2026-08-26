@@ -5,6 +5,7 @@ import {
   CopyEmailButton,
   ExperienceExplorer,
   IntelDecisionExplorer,
+  MethodCard,
   MobileNavigation,
   UbiSimulator,
 } from "./InteractivePortfolio";
@@ -113,8 +114,11 @@ export default function Home() {
             </div>
             <p className="eyebrow">Financial research × data analytics</p>
             <h1 id="hero-title">
-              Understand the business.
-              <em> Test the numbers.</em>
+              <span className="hero-heading-main">
+                <span>Understand</span>{" "}
+                <span>the business.</span>
+              </span>
+              <em>Test the numbers.</em>
             </h1>
             <p className="hero-intro">
               I&apos;m <strong>Shreyshth Sharma</strong>, an Economics and
@@ -149,23 +153,7 @@ export default function Home() {
                 <span>B.S. · 2026</span>
               </div>
             </div>
-            <div className="method-card">
-              <p>How I work</p>
-              <ol>
-                <li>
-                  <span>01</span> Frame the decision
-                </li>
-                <li>
-                  <span>02</span> Audit the evidence
-                </li>
-                <li>
-                  <span>03</span> Stress-test the answer
-                </li>
-                <li>
-                  <span>04</span> Make it usable
-                </li>
-              </ol>
-            </div>
+            <MethodCard />
           </div>
         </section>
 

@@ -386,6 +386,11 @@ img {
   font: 0.62rem var(--font-geist-mono);
 }
 
+.method-card-touch-hint,
+.method-card-touch-toggle {
+  display: none;
+}
+
 .proof-strip {
   display: grid;
   grid-template-columns: 1.55fr 0.72fr 1.13fr;
@@ -1967,6 +1972,19 @@ input[type="range"] {
     font-size: clamp(3.7rem, 17vw, 5.8rem);
   }
 
+  .hero-heading-main,
+  .hero-heading-main > span {
+    display: block;
+  }
+
+  .hero h1 em {
+    margin-top: 0.08em;
+    font-size: 0.68em;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    white-space: nowrap;
+  }
+
   .hero-intro {
     margin-top: 1.55rem;
     font-size: 0.95rem;
@@ -2004,6 +2022,43 @@ input[type="range"] {
     width: calc(100% + 0.8rem);
     margin-top: -1.25rem;
     padding: 0.85rem 1rem;
+    transform-origin: center bottom;
+  }
+
+  .method-card.is-expanded {
+    z-index: 3;
+    transform: rotate(-0.8deg) translateY(-5px) scale(1.025);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .method-card-touch-hint {
+    position: absolute;
+    top: 0.85rem;
+    right: 1rem;
+    display: block;
+    opacity: 0.58;
+    font: 650 0.5rem var(--font-geist-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .method-card-touch-toggle {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .method-card-touch-toggle:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
   }
 
   .method-card > p {
@@ -2363,6 +2418,30 @@ input[type="range"] {
     grid-column: 1 / -1;
   }
 
+}
+
+@media (max-width: 650px) and (hover: none) and (pointer: coarse) {
+  .portrait-frame:active {
+    transform: rotate(0deg) scale(1.012);
+    box-shadow: 13px 13px 0 var(--blue);
+  }
+
+  .project:active {
+    transform: translateY(-3px);
+    box-shadow: 8px 8px 0 var(--ink);
+  }
+
+  .proof-strip article:active {
+    background: color-mix(in srgb, var(--blue) 7%, var(--white));
+  }
+
+  .capability-grid article:active {
+    background: #191c16;
+  }
+
+  .education-list > div:active {
+    background: color-mix(in srgb, var(--acid) 16%, transparent);
+  }
 }
 
 @media (max-width: 380px) {
