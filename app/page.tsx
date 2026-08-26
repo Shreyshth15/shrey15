@@ -138,7 +138,7 @@ export default function Home() {
             <div className="portrait-frame">
               <Image
                 src="/images/shrey-iu.jpg"
-                alt="Shrey Sharma at Indiana University"
+                alt="Shreyshth Sharma in graduation attire at Indiana University"
                 width="960"
                 height="1280"
                 sizes="(max-width: 1180px) 78vw, 38vw"

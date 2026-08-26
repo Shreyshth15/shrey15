@@ -90,8 +90,8 @@ test("final site has production metadata and required public assets", async () =
   assert.doesNotMatch(page, /codex-preview|SkeletonPreview|_sites-preview/);
   assert.doesNotMatch(layout, /Starter Project|codex-preview|_sites-preview/);
   assert.doesNotMatch(packageJson, /react-loading-skeleton/);
-  assert.match(layout, /og-v2\.jpg/);
-  assert.match(layout, /Understand the Business\. Test the Numbers\./);
+  assert.match(layout, /og-v3\.png/);
+  assert.match(layout, /Shreyshth Sharma \| Financial Research & Data Analytics/);
   assert.doesNotMatch(layout, /Analysis that holds up|—/);
   assert.match(layout, /robots: \{ index: true, follow: true \}/);
 
@@ -99,6 +99,7 @@ test("final site has production metadata and required public assets", async () =
     access(new URL("../public/resume.pdf", import.meta.url)),
     access(new URL("../public/og.png", import.meta.url)),
     access(new URL("../public/og-v2.jpg", import.meta.url)),
+    access(new URL("../public/og-v3.png", import.meta.url)),
     access(new URL("../public/images/shrey-iu.jpg", import.meta.url)),
     access(new URL("../public/images/shrey-graduation.jpg", import.meta.url)),
   ]);

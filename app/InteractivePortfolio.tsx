@@ -33,6 +33,7 @@ export function MobileNavigation() {
       <button
         className="mobile-nav-toggle"
         type="button"
+        aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation-panel"
         onClick={() => setIsOpen((current) => !current)}
