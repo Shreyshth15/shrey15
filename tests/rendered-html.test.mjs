@@ -13,13 +13,16 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
 
   assert.match(page, /<span>Understand<\/span>/);
   assert.match(page, /<span>the business\.<\/span>/);
-  assert.match(page, /Test the numbers/);
+  assert.match(page, /<span>Test the<\/span>/);
+  assert.match(page, /<span>numbers\.<\/span>/);
   assert.match(page, /Financial research × data analytics/);
   assert.match(page, /How sensitive is the UBI answer/);
   assert.match(page, /Company research/);
   assert.match(page, /Decision models/);
   assert.match(page, /Corporate finance/);
-  assert.match(page, /Transactions/);
+  assert.match(page, /Analyst roles/);
+  assert.match(page, /Credit &amp; debt/);
+  assert.match(page, /Structured finance/);
   assert.match(page, /five candidate data-center/);
   assert.match(page, /three engagement drop-off points/);
   assert.match(page, /Nobody knows what 96% of Excel means/);

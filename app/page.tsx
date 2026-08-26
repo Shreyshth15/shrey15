@@ -120,7 +120,10 @@ export default function Home() {
                 <span>Understand</span>{" "}
                 <span>the business.</span>
               </span>
-              <em>Test the numbers.</em>
+              <em>
+                <span>Test the</span>{" "}
+                <span>numbers.</span>
+              </em>
             </h1>
             <p className="hero-intro">
               I&apos;m <strong>Shreyshth Sharma</strong>, an Economics and
@@ -170,7 +173,7 @@ export default function Home() {
           </article>
           <article>
             <span>Role focus</span>
-            <p>Investment research · Credit · Corporate finance · Transactions · Portfolio analytics</p>
+            <p>Analyst roles · Investment research · Credit &amp; debt · Corporate finance · Structured finance · Portfolio analytics</p>
           </article>
         </section>
 

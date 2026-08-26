@@ -1975,43 +1975,21 @@ input[type="range"] {
   }
 
   .hero h1 {
-    padding-bottom: 0.55rem;
     font-size: clamp(3.7rem, 17vw, 5.8rem);
   }
 
-  .hero-heading-main {
-    display: block;
-  }
-
+  .hero-heading-main,
   .hero-heading-main > span {
     display: block;
-    width: max-content;
-  }
-
-  .hero-heading-main > span:first-child {
-    font-size: 1em;
-    line-height: 0.82;
-  }
-
-  .hero-heading-main > span:last-child {
-    margin: 0.12em 0 0 auto;
-    font-size: 0.72em;
-    line-height: 0.98;
-    letter-spacing: -0.06em;
   }
 
   .hero h1 em {
-    position: relative;
-    width: max-content;
-    margin: 0.3em 0 0 0.04em;
-    padding: 0.05em 0.15em 0.1em;
-    font-size: 0.61em;
-    line-height: 0.92;
-    letter-spacing: -0.055em;
-    white-space: nowrap;
-    background: var(--acid);
-    box-shadow: 4px 4px 0 var(--ink);
-    transform: rotate(-0.7deg);
+    margin-top: 0.08em;
+    line-height: 0.86;
+  }
+
+  .hero h1 em span {
+    display: block;
   }
 
   .hero-intro {
