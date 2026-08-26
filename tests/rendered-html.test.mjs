@@ -71,6 +71,10 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(interactive, /Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024/);
   assert.match(interactive, /Enlarge the graduation photo/);
   assert.match(interactive, /Focus on \$\{item\.institution\}/);
+  assert.match(interactive, /className="method-card-touch-toggle"/);
+  assert.match(interactive, /className="about-photo-touch-toggle"/);
+  assert.match(interactive, /className="education-entry-touch-toggle"/);
+  assert.doesNotMatch(interactive, /Tap to (?:expand|enlarge|focus|reset)/);
   assert.doesNotMatch(`${page}\n${interactive}`, /Study Abroad/);
   assert.match(page, />Visca<\/span> el/);
   assert.match(page, /visca-blue/);

@@ -386,11 +386,8 @@ img {
   font: 0.62rem var(--font-geist-mono);
 }
 
-.method-card-touch-hint,
 .method-card-touch-toggle,
-.about-photo-touch-hint,
 .about-photo-touch-toggle,
-.education-entry-touch-hint,
 .education-entry-touch-toggle {
   display: none;
 }
@@ -2051,17 +2048,6 @@ input[type="range"] {
     box-shadow: 6px 6px 0 var(--ink);
   }
 
-  .method-card-touch-hint {
-    position: absolute;
-    top: 0.85rem;
-    right: 1rem;
-    display: block;
-    opacity: 0.58;
-    font: 650 0.5rem var(--font-geist-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-  }
-
   .method-card-touch-toggle {
     position: absolute;
     inset: 0;
@@ -2391,22 +2377,6 @@ input[type="range"] {
     filter: saturate(1) contrast(1.02);
   }
 
-  .about-photo-touch-hint {
-    position: absolute;
-    top: 0.7rem;
-    right: 0.7rem;
-    z-index: 2;
-    display: block;
-    padding: 0.38rem 0.5rem;
-    border: 1px solid var(--white);
-    background: color-mix(in srgb, var(--ink) 88%, transparent);
-    color: var(--white);
-    font: 650 0.49rem var(--font-geist-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    pointer-events: none;
-  }
-
   .about-photo-touch-toggle {
     position: absolute;
     inset: 0 0 1.55rem;
@@ -2462,19 +2432,6 @@ input[type="range"] {
 
   .education-entry.is-expanded > p {
     color: var(--ink);
-  }
-
-  .education-entry-touch-hint {
-    position: absolute;
-    top: 1rem;
-    right: 0.1rem;
-    z-index: 1;
-    display: block;
-    color: var(--blue);
-    font: 700 0.48rem var(--font-geist-mono);
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    pointer-events: none;
   }
 
   .education-entry-touch-toggle {

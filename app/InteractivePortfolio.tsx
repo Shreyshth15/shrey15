@@ -79,9 +79,6 @@ export function MethodCard() {
           <span>04</span> Make it usable
         </li>
       </ol>
-      <span className="method-card-touch-hint" aria-hidden="true">
-        {isExpanded ? "Tap to reset" : "Tap to expand"}
-      </span>
       <button
         className="method-card-touch-toggle"
         type="button"
@@ -110,9 +107,6 @@ export function AboutPhotoCard() {
         sizes="(max-width: 900px) 86vw, 42vw"
       />
       <p>Indiana University Bloomington · 2026</p>
-      <span className="about-photo-touch-hint" aria-hidden="true">
-        {isExpanded ? "Tap to reset" : "Tap to enlarge"}
-      </span>
       <button
         className="about-photo-touch-toggle"
         type="button"
@@ -167,9 +161,6 @@ export function EducationList() {
               ) : null}
             </div>
             <p>{item.detail}</p>
-            <span className="education-entry-touch-hint" aria-hidden="true">
-              {isActive ? "Focused" : "Tap to focus"}
-            </span>
             <button
               className="education-entry-touch-toggle"
               type="button"
