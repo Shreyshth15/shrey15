@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import {
   initialIntelWeights,
@@ -92,6 +93,105 @@ export function MethodCard() {
           {isExpanded ? "Return card to normal size" : "Enlarge card"}
         </span>
       </button>
+    </div>
+  );
+}
+
+export function AboutPhotoCard() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div className={isExpanded ? "about-photo is-expanded" : "about-photo"}>
+      <Image
+        src="/images/shrey-graduation.jpg"
+        alt="Shrey Sharma receiving his Economics and Quantitative Methods degree"
+        width="1600"
+        height="900"
+        sizes="(max-width: 900px) 86vw, 42vw"
+      />
+      <p>Indiana University Bloomington · 2026</p>
+      <span className="about-photo-touch-hint" aria-hidden="true">
+        {isExpanded ? "Tap to reset" : "Tap to enlarge"}
+      </span>
+      <button
+        className="about-photo-touch-toggle"
+        type="button"
+        aria-label={
+          isExpanded
+            ? "Return the graduation photo to normal size"
+            : "Enlarge the graduation photo"
+        }
+        aria-pressed={isExpanded}
+        onClick={() => setIsExpanded((current) => !current)}
+      >
+        <span className="sr-only">
+          {isExpanded ? "Return photo to normal size" : "Enlarge photo"}
+        </span>
+      </button>
+    </div>
+  );
+}
+
+const educationItems = [
+  {
+    id: "indiana",
+    institution: "Indiana University",
+    context: null,
+    detail: "B.S. Economics & Quantitative Methods (STEM) · Psychology minor",
+  },
+  {
+    id: "lse",
+    institution: "London School of Economics",
+    context: "(Summer School)",
+    detail: "Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024",
+  },
+] as const;
+
+export function EducationList() {
+  const [activeEducation, setActiveEducation] = useState<string | null>(null);
+
+  return (
+    <div className="education-list">
+      {educationItems.map((item) => {
+        const isActive = activeEducation === item.id;
+
+        return (
+          <div
+            className={isActive ? "education-entry is-expanded" : "education-entry"}
+            key={item.id}
+          >
+            <div className="education-institution">
+              <span>{item.institution}</span>
+              {item.context ? (
+                <p className="education-context">{item.context}</p>
+              ) : null}
+            </div>
+            <p>{item.detail}</p>
+            <span className="education-entry-touch-hint" aria-hidden="true">
+              {isActive ? "Focused" : "Tap to focus"}
+            </span>
+            <button
+              className="education-entry-touch-toggle"
+              type="button"
+              aria-label={
+                isActive
+                  ? `Remove focus from ${item.institution}`
+                  : `Focus on ${item.institution}`
+              }
+              aria-pressed={isActive}
+              onClick={() =>
+                setActiveEducation((current) =>
+                  current === item.id ? null : item.id,
+                )
+              }
+            >
+              <span className="sr-only">
+                {isActive ? "Remove focus" : "Focus education entry"}
+              </span>
+            </button>
+          </div>
+        );
+      })}
     </div>
   );
 }

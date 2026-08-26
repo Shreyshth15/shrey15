@@ -387,7 +387,11 @@ img {
 }
 
 .method-card-touch-hint,
-.method-card-touch-toggle {
+.method-card-touch-toggle,
+.about-photo-touch-hint,
+.about-photo-touch-toggle,
+.education-entry-touch-hint,
+.education-entry-touch-toggle {
   display: none;
 }
 
@@ -1576,12 +1580,14 @@ input[type="range"] {
 }
 
 .education-list > div {
+  position: relative;
   padding: 1rem 0;
   display: grid;
   grid-template-columns: 220px 1fr;
   gap: 1.5rem;
   border-bottom: 1px solid var(--line);
-  transition: padding 180ms ease, background 180ms ease;
+  transition: padding 180ms ease, background 180ms ease, transform 180ms ease,
+    box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .education-list span {
@@ -1969,20 +1975,43 @@ input[type="range"] {
   }
 
   .hero h1 {
+    padding-bottom: 0.55rem;
     font-size: clamp(3.7rem, 17vw, 5.8rem);
   }
 
-  .hero-heading-main,
-  .hero-heading-main > span {
+  .hero-heading-main {
     display: block;
   }
 
-  .hero h1 em {
-    margin-top: 0.08em;
-    font-size: 0.68em;
+  .hero-heading-main > span {
+    display: block;
+    width: max-content;
+  }
+
+  .hero-heading-main > span:first-child {
+    font-size: 1em;
+    line-height: 0.82;
+  }
+
+  .hero-heading-main > span:last-child {
+    margin: 0.12em 0 0 auto;
+    font-size: 0.72em;
     line-height: 0.98;
+    letter-spacing: -0.06em;
+  }
+
+  .hero h1 em {
+    position: relative;
+    width: max-content;
+    margin: 0.3em 0 0 0.04em;
+    padding: 0.05em 0.15em 0.1em;
+    font-size: 0.61em;
+    line-height: 0.92;
     letter-spacing: -0.055em;
     white-space: nowrap;
+    background: var(--acid);
+    box-shadow: 4px 4px 0 var(--ink);
+    transform: rotate(-0.7deg);
   }
 
   .hero-intro {
@@ -2015,12 +2044,25 @@ input[type="range"] {
     object-position: 50% 57%;
   }
 
+  .photo-caption {
+    position: relative;
+    z-index: 2;
+    padding: 0.72rem 0.2rem 0.18rem;
+    background: var(--white);
+    font-size: 0.57rem;
+    line-height: 1.35;
+  }
+
+  .photo-caption span:last-child {
+    flex: 0 0 auto;
+  }
+
   .method-card {
     position: relative;
     left: -0.8rem;
     bottom: auto;
     width: calc(100% + 0.8rem);
-    margin-top: -1.25rem;
+    margin-top: 0.7rem;
     padding: 0.85rem 1rem;
     transform-origin: center bottom;
   }
@@ -2362,6 +2404,48 @@ input[type="range"] {
 
   .about-photo {
     width: 96%;
+    transform-origin: center;
+  }
+
+  .about-photo.is-expanded img {
+    transform: translateY(-4px) scale(1.025) rotate(-0.25deg);
+    box-shadow: -18px 18px 0 var(--blue);
+    filter: saturate(1) contrast(1.02);
+  }
+
+  .about-photo-touch-hint {
+    position: absolute;
+    top: 0.7rem;
+    right: 0.7rem;
+    z-index: 2;
+    display: block;
+    padding: 0.38rem 0.5rem;
+    border: 1px solid var(--white);
+    background: color-mix(in srgb, var(--ink) 88%, transparent);
+    color: var(--white);
+    font: 650 0.49rem var(--font-geist-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    pointer-events: none;
+  }
+
+  .about-photo-touch-toggle {
+    position: absolute;
+    inset: 0 0 1.55rem;
+    z-index: 3;
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .about-photo-touch-toggle:focus-visible,
+  .education-entry-touch-toggle:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
   }
 
   .about-section {
@@ -2383,6 +2467,50 @@ input[type="range"] {
   .education-list > div {
     grid-template-columns: 1fr;
     gap: 0.45rem;
+  }
+
+  .education-list > .education-entry {
+    padding-right: 4.2rem;
+    transform-origin: center;
+  }
+
+  .education-list > .education-entry.is-expanded {
+    padding: 1rem 4.2rem 1rem 0.75rem;
+    border-left: 4px solid var(--blue);
+    background: color-mix(in srgb, var(--acid) 22%, var(--paper));
+    box-shadow: 5px 5px 0 var(--ink);
+    transform: translate(-0.2rem, -2px) scale(1.01);
+  }
+
+  .education-entry.is-expanded > p {
+    color: var(--ink);
+  }
+
+  .education-entry-touch-hint {
+    position: absolute;
+    top: 1rem;
+    right: 0.1rem;
+    z-index: 1;
+    display: block;
+    color: var(--blue);
+    font: 700 0.48rem var(--font-geist-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    pointer-events: none;
+  }
+
+  .education-entry-touch-toggle {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    touch-action: manipulation;
   }
 
   .contact-section h2 {

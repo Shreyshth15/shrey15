@@ -63,9 +63,12 @@ test("portfolio content stays evidence-led and recruiter-ready", async () => {
   assert.match(page, /behavior behind the numbers/);
   assert.match(page, /FC Barcelona is my club/);
   assert.match(page, /on match day, I&apos;m usually glued to the screen/);
-  assert.match(page, /<span>London School of Economics<\/span>\s*<p className="education-context">\(Summer School\)<\/p>/);
-  assert.match(page, /<\/div>\s*<p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024<\/p>/);
-  assert.doesNotMatch(page, /Study Abroad/);
+  assert.match(interactive, /institution: "London School of Economics"/);
+  assert.match(interactive, /context: "\(Summer School\)"/);
+  assert.match(interactive, /Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024/);
+  assert.match(interactive, /Enlarge the graduation photo/);
+  assert.match(interactive, /Focus on \$\{item\.institution\}/);
+  assert.doesNotMatch(`${page}\n${interactive}`, /Study Abroad/);
   assert.match(page, />Visca<\/span> el/);
   assert.match(page, /visca-blue/);
   assert.match(page, /barca-red/);

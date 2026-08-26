@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import {
+  AboutPhotoCard,
   AudienceLens,
   CopyEmailButton,
+  EducationList,
   ExperienceExplorer,
   IntelDecisionExplorer,
   MethodCard,
@@ -334,16 +336,7 @@ export default function Home() {
         </section>
 
         <section className="section about-section" id="about" aria-labelledby="about-title">
-          <div className="about-photo">
-            <Image
-              src="/images/shrey-graduation.jpg"
-              alt="Shrey Sharma receiving his Economics and Quantitative Methods degree"
-              width="1600"
-              height="900"
-              sizes="(max-width: 900px) 86vw, 42vw"
-            />
-            <p>Indiana University Bloomington · 2026</p>
-          </div>
+          <AboutPhotoCard />
           <div className="about-copy">
             <p className="eyebrow">04 / About</p>
             <h2 id="about-title">Curiosity brought me to Economics. Evidence led me to Quant.</h2>
@@ -362,19 +355,7 @@ export default function Home() {
               investment research, finance operations, and client analytics. I am looking
               for roles where financial judgment and analytical execution belong together.
             </p>
-            <div className="education-list">
-              <div>
-                <span>Indiana University</span>
-                <p>B.S. Economics &amp; Quantitative Methods (STEM) · Psychology minor</p>
-              </div>
-              <div>
-                <div className="education-institution">
-                  <span>London School of Economics</span>
-                  <p className="education-context">(Summer School)</p>
-                </div>
-                <p>Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024</p>
-              </div>
-            </div>
+            <EducationList />
             <p className="about-personal">
               Outside work, you&apos;ll usually find me playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is my club, and on match day, I&apos;m usually glued to the screen.{" "}
               <span className="visca-blue">Visca</span> el{" "}
