@@ -22,18 +22,19 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: {
-      default: "Shreyshth Sharma | Financial Research & Data Analytics",
+      default: "Shreyshth Sharma | Data & Business Analyst",
       template: "%s | Shreyshth Sharma",
     },
     description:
-      "Economics and Quantitative Methods graduate building defensible research, decision models, and analytical reporting across finance and business questions.",
+      "Economics and Quantitative Methods graduate focused on data analysis, business analysis, financial analysis, and investment research.",
     authors: [{ name: "Shreyshth Sharma", url: origin }],
     creator: "Shreyshth Sharma",
     keywords: [
       "Shreyshth Sharma",
-      "financial research",
-      "data analytics",
-      "investment analytics",
+      "data analyst",
+      "business analyst",
+      "financial analysis",
+      "investment research",
       "econometrics",
       "Tableau",
       "Python",
@@ -43,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
     openGraph: {
       title: "Shreyshth Sharma",
-      description: "Financial Research × Data Analytics Portfolio",
+      description: "Data & Business Analysis Portfolio",
       url: origin,
       siteName: "Shreyshth Sharma Portfolio",
       locale: "en_US",
@@ -52,7 +53,7 @@ export async function generateMetadata(): Promise<Metadata> {
           url: imageUrl,
           width: 1200,
           height: 630,
-          alt: "Shreyshth Sharma | Financial Research × Data Analytics",
+          alt: "Shreyshth Sharma | Data & Business Analysis",
         },
       ],
       type: "website",
@@ -60,7 +61,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "Shreyshth Sharma",
-      description: "Financial Research × Data Analytics Portfolio",
+      description: "Data & Business Analysis Portfolio",
       images: [imageUrl],
     },
   };

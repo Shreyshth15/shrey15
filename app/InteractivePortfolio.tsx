@@ -1,12 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
-import {
-  initialIntelWeights,
-  rankIntelSites,
-  type IntelCriterionId,
-} from "./intelModel";
+import { useState } from "react";
 
 const BASE_INCOME = 50_000;
 const UBI_LEVELS = [0, 6_000, 12_000, 18_000];
@@ -137,7 +132,7 @@ const educationItems = [
     id: "lse",
     institution: "London School of Economics",
     context: "(Summer School)",
-    detail: "Intermediate Macroeconomics · Introduction to Econometrics · Summer 2024",
+    detail: "Intermediate Macroeconomics · Econometrics · Jul–Aug 2024",
   },
 ] as const;
 
@@ -205,7 +200,7 @@ export function UbiSimulator() {
             <span>01</span>
             <p>Set the assumptions</p>
           </div>
-          <span className="live-pill">Live model · yes, it moves</span>
+          <span className="live-pill">Illustrative scenario · adjust the inputs</span>
         </div>
 
         <label className="range-control" htmlFor="elasticity">
@@ -223,7 +218,7 @@ export function UbiSimulator() {
             onChange={(event) => setElasticity(Number(event.target.value))}
             aria-describedby="elasticity-note"
           />
-          <small id="elasticity-note">Original notebook range: 0.05–0.20</small>
+          <small id="elasticity-note">Explore how the modeled result changes with elasticity.</small>
         </label>
 
         <label className="range-control" htmlFor="ubi">
@@ -300,237 +295,68 @@ export function UbiSimulator() {
   );
 }
 
-type IntelCriterion = {
-  id: IntelCriterionId;
-  label: string;
-  evidence: string;
-  color: string;
-};
-
-const intelCriteria: IntelCriterion[] = [
-  {
-    id: "renewables",
-    label: "Renewable mix",
-    evidence: "Generation mix and renewable-resource availability",
-    color: "#dfff61",
-  },
-  {
-    id: "reliability",
-    label: "Grid reliability",
-    evidence: "Reliability indicators and regional surplus potential",
-    color: "#6be6ff",
-  },
-  {
-    id: "cost",
-    label: "Power economics",
-    evidence: "Comparable electricity-cost indicators",
-    color: "#ff9d73",
-  },
-  {
-    id: "readiness",
-    label: "Infrastructure readiness",
-    evidence: "Site constraints and infrastructure-readiness signals",
-    color: "#b49bff",
-  },
-];
-
 export function IntelDecisionExplorer() {
-  const [weights, setWeights] = useState(initialIntelWeights);
-  const total = Object.values(weights).reduce((sum, value) => sum + value, 0);
-
-  const normalized = useMemo(
-    () =>
-      intelCriteria.map((criterion) => ({
-        ...criterion,
-        raw: weights[criterion.id],
-        share: (weights[criterion.id] / total) * 100,
-      })),
-    [total, weights],
-  );
-  const ranking = useMemo(() => rankIntelSites(weights), [weights]);
-  const winner = ranking[0];
-  const runnerUp = ranking[1];
-  const isBaseline = Object.entries(initialIntelWeights).every(
-    ([criterion, value]) => weights[criterion as IntelCriterion["id"]] === value,
-  );
-  const winnerDrivers = [...intelCriteria]
-    .sort(
-      (a, b) =>
-        winner.scores[b.id] * weights[b.id] - winner.scores[a.id] * weights[a.id],
-    )
-    .slice(0, 2);
-
-  const nearestFlip = useMemo(() => {
-    const alternatives: Array<{
-      criterion: IntelCriterion;
-      value: number;
-      share: number;
-      winner: string;
-      distance: number;
-    }> = [];
-
-    intelCriteria.forEach((criterion) => {
-      for (let value = 5; value <= 70; value += 5) {
-        if (value === weights[criterion.id]) continue;
-        const scenarioWeights = { ...weights, [criterion.id]: value };
-        const scenarioWinner = rankIntelSites(scenarioWeights)[0];
-
-        if (scenarioWinner.id !== winner.id) {
-          const scenarioTotal = Object.values(scenarioWeights).reduce(
-            (sum, weight) => sum + weight,
-            0,
-          );
-          alternatives.push({
-            criterion,
-            value,
-            share: (value / scenarioTotal) * 100,
-            winner: scenarioWinner.label,
-            distance: Math.abs(value - weights[criterion.id]),
-          });
-        }
-      }
-    });
-
-    return alternatives.sort((a, b) => a.distance - b.distance)[0];
-  }, [weights, winner.id]);
-
   return (
     <div className="intel-explorer">
-      <div
-        className="intel-composition"
-        role="group"
-        aria-label="Normalized decision weights"
-      >
-        {normalized.map((criterion) => (
-          <span
-            key={criterion.id}
-            style={{ width: `${criterion.share}%`, background: criterion.color }}
-            title={`${criterion.label}: ${criterion.share.toFixed(0)}%`}
-          />
-        ))}
+      <div className="intel-evidence-grid" aria-label="Metrics compared in the Intel case">
+        <div><span>01 / Supply</span><p>Electricity supply</p></div>
+        <div><span>02 / Demand</span><p>Electricity demand</p></div>
+        <div><span>03 / Renewables</span><p>Renewable generation</p></div>
       </div>
-
-      <div className="intel-grid">
-        <div className="weight-controls">
-          {normalized.map((criterion) => (
-            <label key={criterion.id} htmlFor={`weight-${criterion.id}`}>
-              <span>
-                <i style={{ background: criterion.color }} />
-                {criterion.label}
-                <output htmlFor={`weight-${criterion.id}`}>
-                  {criterion.share.toFixed(0)}%
-                </output>
-              </span>
-              <input
-                id={`weight-${criterion.id}`}
-                type="range"
-                min="5"
-                max="70"
-                step="5"
-                value={criterion.raw}
-                onChange={(event) =>
-                  setWeights((current) => ({
-                    ...current,
-                    [criterion.id]: Number(event.target.value),
-                  }))
-                }
-              />
-              <small>{criterion.evidence}</small>
-            </label>
-          ))}
-        </div>
-
-        <div
-          className="site-ranking"
-          role="group"
-          aria-label="Weighted ranking of anonymized sites"
-        >
-          {ranking.map((site, index) => (
-            <div className={index === 0 ? "site-rank winner" : "site-rank"} key={site.id}>
-              <span>
-                <i>0{index + 1}</i>
-                {site.label}
-                {site.id === "site-a" && <small>Project pick</small>}
-              </span>
-              <strong>{site.total.toFixed(1)}</strong>
-              <div aria-hidden="true">
-                <i style={{ width: `${site.total}%` }} />
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="recommendation-panel" aria-live="polite">
+      <div className="recommendation-panel intel-evidence-panel">
         <div className="project-conclusion">
-          <span>Project conclusion</span>
-          <strong>Site A won.</strong>
+          <span>Scope</span>
+          <strong>13 U.S. regions.</strong>
           <p>
-            At the original weights, Site A offered the strongest sustainability-first balance. Its renewable advantage did the most work, while grid reliability and infrastructure readiness kept it from winning on sustainability alone.
+            Tableau dashboards compared regional electricity supply, demand,
+            and renewable generation using a program-provided case dataset.
           </p>
         </div>
         <div className="scenario-result">
-          <span>Live scenario</span>
-          <strong>{winner.label} {isBaseline ? "still leads." : "leads."}</strong>
+          <span>Finding</span>
+          <strong>Northwest.</strong>
           <p>
-            {winner.label} leads on the current mix, driven most by {winnerDrivers[0].label.toLowerCase()} and{" "}
-            {winnerDrivers[1].label.toLowerCase()}. It is {(winner.total - runnerUp.total).toFixed(1)} points ahead of{" "}
-            {runnerUp.label}.
-          </p>
-        </div>
-        <div>
-          <span>What would flip it</span>
-          <p>
-            {nearestFlip
-              ? `${nearestFlip.value > weights[nearestFlip.criterion.id] ? "Raise" : "Lower"} ${nearestFlip.criterion.label.toLowerCase()} to about ${nearestFlip.share.toFixed(0)}% of the mix and ${nearestFlip.winner} takes the lead.`
-              : "No single slider move flips the result. More than one trade-off has to change."}
-          </p>
-        </div>
-        <div>
-          <span>Outcome</span>
-          <p>
-            The framework turned scattered energy and infrastructure inputs into a recommendation centered on carbon reduction and execution readiness.
+            The Northwest had the highest renewable-generation share in the case comparison.
           </p>
         </div>
         <small>
-          Anonymized portfolio reconstruction. Site profiles are normalized to 0–100; exact source values are not presented.
+          IU Global Career Accelerator course case using a program-provided dataset; exact regional figures are not shown here.
         </small>
       </div>
     </div>
   );
 }
-
 const audienceStages = [
   {
-    id: "reach",
-    label: "Reach",
-    question: "Which content earns the first look?",
-    evidence: "Compare audience volume and the segments producing initial attention.",
-    decision: "Prioritize the formats and topics with the strongest entry signal.",
+    id: "before",
+    label: "Before",
+    question: "1.86 pages per session",
+    evidence: "Grammy.com engagement before the website split.",
+    decision: "Baseline for the observed KPI comparison.",
   },
   {
-    id: "engage",
-    label: "Engage",
-    question: "Where does attention start to weaken?",
-    evidence: "Trace the journey to isolate the engagement drop-off points.",
-    decision: "Revise sequencing, creative, or distribution around the weak handoff.",
+    id: "after",
+    label: "After",
+    question: "2.25 pages per session",
+    evidence: "Grammy.com engagement after the website split.",
+    decision: "The observed KPI was higher in the later period.",
   },
   {
-    id: "retain",
-    label: "Retain",
-    question: "Which patterns are worth repeating?",
-    evidence: "Connect later-stage behavior back to top-performing content segments.",
-    decision: "Build the next content plan around repeatable audience signals.",
+    id: "recommendation",
+    label: "Recommendation",
+    question: "Retain separate sites",
+    evidence: "Excel PivotTables and KPI comparisons supported the review.",
+    decision: "Recommended retaining separate sites; the before-and-after difference does not establish causation.",
   },
 ];
 
 export function AudienceLens() {
-  const [activeId, setActiveId] = useState("reach");
+  const [activeId, setActiveId] = useState("before");
   const active = audienceStages.find((stage) => stage.id === activeId) ?? audienceStages[0];
 
   return (
     <div className="audience-lens">
-      <div className="journey-tabs" role="tablist" aria-label="Audience analysis stages">
+      <div className="journey-tabs" role="tablist" aria-label="Grammy.com engagement comparison">
         {audienceStages.map((stage, index) => (
           <button
             type="button"
@@ -547,15 +373,15 @@ export function AudienceLens() {
       </div>
 
       <div className="audience-panel" id="audience-panel" role="tabpanel" aria-live="polite">
-        <span>{active.label} lens</span>
+        <span>{active.label} · Grammy.com</span>
         <h4>{active.question}</h4>
         <dl>
           <div>
-            <dt>What to inspect</dt>
+            <dt>Evidence</dt>
             <dd>{active.evidence}</dd>
           </div>
           <div>
-            <dt>Why it matters</dt>
+            <dt>Interpretation</dt>
             <dd>{active.decision}</dd>
           </div>
         </dl>
@@ -563,79 +389,75 @@ export function AudienceLens() {
     </div>
   );
 }
-
 const experiences = [
   {
-    company: "Global Tech Experience",
+    company: "IU Global Career Accelerator",
     date: "Jan–May 2025",
     duration: "5 months",
-    location: "Bloomington, IN",
-    role: "Data Analytics Trainee",
+    location: "Indiana University Bloomington",
+    role: "Data Analytics Track · six-credit experiential course",
     summary:
-      "Built comparative reporting for an Intel site-selection project and audience analysis for the Recording Academy.",
+      "Completed a six-credit experiential course using program-provided case datasets, not an employer internship with Intel or the Recording Academy.",
     work: [
-      "Synthesized multi-source energy and infrastructure data",
-      "Built Tableau and Excel decision views",
-      "Packaged findings into executive-ready reporting",
+      "Built Tableau dashboards comparing electricity supply, demand, and renewable generation across 13 U.S. regions for an Intel sustainability case",
+      "Identified the Northwest as having the highest renewable-generation share in the case comparison",
+      "Analyzed Grammy.com engagement using Excel PivotTables and KPI comparisons",
+      "Observed pages per session increase from 1.86 to 2.25 after a website split",
     ],
     outcome:
-      "The final reporting made site trade-offs easier to compare and identified three audience drop-off points that informed content strategy.",
-    tools: ["Tableau", "Excel", "Python", "Executive reporting"],
+      "Recommended retaining separate sites for the Recording Academy case; the before-and-after KPI comparison does not establish that the split caused the increase.",
+    tools: ["Tableau", "Excel PivotTables", "KPI comparison"],
+  },
+  {
+    company: "NTALENTS.AI (Acquired by Unacademy)",
+    date: "May–Jun 2024",
+    duration: "2 months",
+    location: "Bangalore, India",
+    role: "Data Analyst Intern",
+    summary:
+      "Analyzed up to 30,000 recruitment records across 3+ client accounts using MySQL joins and Python pandas.",
+    work: [
+      "Flagged screening-to-interview delays for stakeholder review",
+      "Helped build Tableau dashboards tracking stage conversion and time-to-interview for monthly client reports",
+      "Recommended priority follow-ups on stalled applications",
+    ],
+    outcome:
+      "The reporting and follow-up recommendations contributed to 15% higher reported client satisfaction scores.",
+    tools: ["MySQL", "Python pandas", "Tableau", "Client reporting"],
   },
   {
     company: "DLF Limited",
     date: "Aug–Nov 2023",
     duration: "4 months",
     location: "Gurugram, India",
-    role: "Finance Intern",
+    role: "Finance & Accounting Intern",
     summary:
-      "Standardized expense reporting and analyzed spend patterns across vendors and departments.",
+      "Processed 50–100 customer cheque payments daily in Ramco and reconciled installment records.",
     work: [
-      "Built reusable Excel reporting templates",
-      "Improved expense categorization and reconciliation",
-      "Analyzed three months of operating spend",
+      "Resolved missing entries, duplicate payments, and amount discrepancies with manager approval",
+      "Built a reusable Excel lookup-based reconciliation template for approximately 200–300 customers",
     ],
     outcome:
-      "The analysis fed a cost review credited with roughly 10% lower monthly operating costs.",
-    tools: ["Excel", "Expense analysis", "Financial reporting"],
-  },
-  {
-    company: "nTalents.ai",
-    date: "Jun–Jul 2023",
-    duration: "2 months",
-    location: "Bangalore, India",
-    role: "Data Analyst Intern",
-    summary:
-      "Turned recruitment datasets into client-facing dashboards and clear visual findings.",
-    work: [
-      "Queried and cleaned recruitment data",
-      "Performed exploratory analysis",
-      "Translated patterns into stakeholder presentations",
-    ],
-    outcome:
-      "The client reporting contributed to roughly 15% higher satisfaction by making recruitment patterns easier to act on.",
-    tools: ["SQL", "Python", "Tableau", "Client reporting"],
+      "The template cut monthly installment review time by 25%, from 8 to 6 hours.",
+    tools: ["Ramco", "Excel lookup formulas", "Financial reconciliation"],
   },
   {
     company: "Marquee Equity",
-    date: "Jul 2022–Jun 2023",
-    duration: "12 months",
-    location: "New Delhi, India",
-    role: "Investment Research Fellow",
+    date: "Jul 2022–May 2023",
+    duration: "11 months",
+    location: "Remote",
+    role: "Investment Banking Fellow (Part-Time)",
     summary:
-      "Built company and sector research for fundraising mandates, investor outreach, and internal deal prioritization.",
+      "Researched 15+ companies across TMT, consumer, education, and B2B services.",
     work: [
-      "Researched early- and growth-stage companies across TMT, consumer, education, and B2B services",
-      "Tracked sector trends, funding momentum, and competitive positioning",
-      "Screened company narratives for fundraising and investor relevance",
-      "Turned findings into investor-facing materials and internal deal priorities",
+      "Assessed business models, funding activity, and competitive positioning",
+      "Supported company screening and investor research",
     ],
     outcome:
-      "The research informed mandate selection and deal prioritization while strengthening materials used in investor outreach.",
-    tools: ["Company research", "Sector analysis", "Competitive research", "Investor materials"],
+      "Produced company research to support screening and investor research.",
+    tools: ["Company research", "Investment research", "Competitive positioning"],
   },
 ];
-
 export function ExperienceExplorer() {
   const [activeIndex, setActiveIndex] = useState(0);
   const active = experiences[activeIndex];

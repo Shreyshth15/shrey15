@@ -1,16 +1,16 @@
 # Shrey15
 
-Recruiter-facing portfolio for Shreyshth Sharma at the intersection of financial research and data analytics.
+Recruiter-facing portfolio for Shreyshth Sharma, focused on data and business analyst roles with financial analysis and investment research experience.
 
 ## What is inside
 
 - A live UBI labor-supply sensitivity model grounded in the published notebook
-- A client-safe Intel site-selection weighting explorer
-- A Reach / Engage / Retain audience-analysis lens
+- An Intel course-case summary comparing energy metrics across 13 U.S. regions
+- An interactive Grammy.com before-and-after engagement comparison
 - An interactive, evidence-led experience timeline
 - Clear recruiter paths to the résumé, email, LinkedIn, and conversation requests
 
-The site intentionally omits unsupported vanity metrics, unpublished client values, and claims that cannot be explained in an interview.
+The portfolio copy and downloadable résumé are aligned with `Shreyshth Sharma_resume15.pdf`. Intel and Recording Academy are program-provided course cases, not direct employment.
 
 ## Local development
 

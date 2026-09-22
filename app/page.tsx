@@ -13,9 +13,9 @@ import {
 } from "./InteractivePortfolio";
 
 export const metadata: Metadata = {
-  title: "Shreyshth Sharma | Financial Research & Data Analytics",
+  title: "Shreyshth Sharma | Data & Business Analyst",
   description:
-    "Economics and Quantitative Methods graduate building defensible research, decision models, and analytical reporting across finance and business questions.",
+    "Economics and Quantitative Methods graduate focused on data analysis, business analysis, financial analysis, and investment research.",
 };
 
 const bookingUrl =
@@ -24,31 +24,31 @@ const bookingUrl =
 const capabilities = [
   {
     number: "01",
-    title: "Finance research",
-    does: "Research companies, sectors, funding context, and competitive position; turn the evidence into a clear point of view.",
-    why: "It shows where deeper diligence and capital may deserve attention.",
-    proof: "Marquee Equity · company and sector research",
+    title: "Business & investment research",
+    does: "Assess business models, funding activity, and competitive positioning across companies and sectors.",
+    why: "It helps teams screen companies and frame the questions worth investigating.",
+    proof: "Marquee Equity · research on 15+ companies",
   },
   {
     number: "02",
     title: "Financial analysis",
-    does: "Read financial statements, compare business drivers, and examine spending, cost, and variance patterns.",
-    why: "It connects the numbers to what is actually happening in the business.",
-    proof: "DLF · operating-spend analysis · finance coursework",
+    does: "Reconcile customer payments, investigate discrepancies, and make recurring reviews more efficient in Excel.",
+    why: "Reliable financial records support faster, more accurate review.",
+    proof: "DLF · Ramco payment processing · Excel reconciliation",
   },
   {
     number: "03",
-    title: "Data & decision models",
-    does: "Clean, join, score, and stress-test evidence with Excel, SQL, Python, Tableau, and econometric reasoning.",
-    why: "It makes the trade-off visible, reviewable, and easier to challenge.",
-    proof: "Intel decision framework · UBI sensitivity model",
+    title: "Data analysis & models",
+    does: "Join and analyze records with MySQL and Python, compare regional metrics in Tableau, and test assumptions in a simulation.",
+    why: "It turns source data and assumptions into findings others can review.",
+    proof: "NTALENTS recruitment analysis · Intel case dashboards · UBI simulation",
   },
   {
     number: "04",
-    title: "Communicate the call",
-    does: "Build dashboards, presentations, and investor materials around the decision, not the software used to make them.",
-    why: "A result only matters if the next person can understand and use it.",
-    proof: "Recording Academy reporting · Marquee investor materials",
+    title: "Communicate findings",
+    does: "Build client dashboards and compare KPIs, then explain what the evidence supports and where it stops.",
+    why: "Clear reporting helps stakeholders decide what to review or follow up on.",
+    proof: "NTALENTS monthly reporting · Grammy.com KPI comparison",
   },
 ];
 
@@ -103,7 +103,7 @@ export default function Home() {
           <a className="header-cta" href="#contact">
             Contact <span aria-hidden="true">↘</span>
           </a>
-          <span className="header-update">Updated August 2026.</span>
+          <span className="header-update">Updated September 2026.</span>
         </div>
       </header>
 
@@ -114,7 +114,7 @@ export default function Home() {
               <span className="status-dot" aria-hidden="true" />
               Washington–Baltimore · Open to relocation nationwide
             </div>
-            <p className="eyebrow">Financial research × data analytics</p>
+            <p className="eyebrow">Data analysis × business insight</p>
             <h1 id="hero-title">
               <span className="hero-heading-main">
                 <span>Understand</span>{" "}
@@ -127,10 +127,10 @@ export default function Home() {
             </h1>
             <p className="hero-intro">
               I&apos;m <strong>Shreyshth Sharma</strong>, an Economics and
-              Quantitative Methods graduate who <strong>researches companies</strong>,
-              examines <strong>financial and operating data</strong>, and builds
-              <strong> decision tools</strong> for teams where finance judgment and
-              analytical rigor belong together.
+              Quantitative Methods graduate focused on <strong>data and business
+              analyst roles</strong>. I use SQL, Python, Excel, and Tableau to examine
+              business questions, with experience in <strong>financial analysis
+              and investment research</strong>.
             </p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">
@@ -165,41 +165,42 @@ export default function Home() {
         <section className="proof-strip" aria-label="Professional positioning">
           <article>
             <span>Applied work</span>
-            <p>Company research · Investor materials · Spend analysis · Decision models · Sensitivity testing · Client dashboards</p>
+            <p>Recruitment analysis · Client dashboards · Financial reconciliation · Investment research · Sensitivity analysis</p>
           </article>
           <article>
             <span>Toolkit</span>
-            <p>Excel · PowerPoint · Tableau · SQL · Python · R</p>
+            <p>Excel · Tableau · MySQL · Python · R</p>
           </article>
           <article>
             <span>Role focus</span>
-            <p>Analyst roles · Investment research · Credit &amp; debt · Corporate finance · Structured finance · Portfolio analytics</p>
+            <p>Data analyst · Business analyst · Financial analysis · Investment research</p>
           </article>
         </section>
 
         <section className="section work-section" id="work" aria-labelledby="work-title">
           <div className="section-heading">
             <p className="eyebrow">01 / Selected work</p>
-            <h2 id="work-title">Use the models.</h2>
+            <h2 id="work-title">Examine the evidence.</h2>
             <p>
-              Move the inputs. Challenge the output. If the answer breaks,
-              that&apos;s useful too.
+              A simulation, a regional comparison, and a website KPI review—
+              with a clear boundary between observation and inference.
             </p>
           </div>
 
           <article className="project project-ubi" aria-labelledby="ubi-title">
             <div className="project-intro">
               <div className="project-topline">
-                <span>Econometric simulation</span>
-                <span>Independent · ECON E402</span>
+                <span>Python labor-supply simulation</span>
+                <span>Individual · ECON E402 course project · Jan–Jun 2025</span>
               </div>
               <div>
                 <p className="project-index">Project 01</p>
                 <h3 id="ubi-title">How sensitive is the UBI answer?</h3>
                 <p>
-                  A Python model tests how annual UBI levels change labor supply
-                  under different income-elasticity assumptions. The point is not
-                  a single forecast; it is seeing how much the answer depends on ε.
+                  An individual ECON E402 project simulated 12 UBI and elasticity
+                  scenarios in Python. At $12,000 annual UBI, 0.10 elasticity,
+                  and $50,000 baseline income, the model shows a 2.4% reduction
+                  in work hours—not a causal policy forecast.
                 </p>
               </div>
               <div className="project-facts">
@@ -221,14 +222,12 @@ export default function Home() {
             <div className="project-outcome">
               <span>Outcome</span>
               <p>
-                Turned a single policy estimate into a sensitivity view that shows exactly when the conclusion changes.
+                Used sensitivity analysis to show how modeled work hours vary with the UBI and elasticity assumptions.
               </p>
             </div>
             <div className="project-foot">
               <div className="tag-row" role="group" aria-label="UBI project tools">
                 <span title="Simulation logic">Python</span>
-                <span title="Scenario outputs">Pandas</span>
-                <span title="Sensitivity charts">Matplotlib</span>
                 <span title="Stress-tested assumptions">Sensitivity analysis</span>
               </div>
               <a
@@ -244,53 +243,51 @@ export default function Home() {
           <div className="project-grid">
             <article className="project project-intel" aria-labelledby="intel-title">
               <div className="project-topline">
-                <span>Decision modeling</span>
-                <span>Intel · Industry project</span>
+                <span>Regional energy analysis</span>
+                <span>Intel case · IU experiential course</span>
               </div>
               <p className="project-index">Project 02</p>
-              <h3 id="intel-title">Which evidence should drive a site decision?</h3>
+              <h3 id="intel-title">How does regional energy compare?</h3>
               <p className="project-summary">
-                Built a comparative framework for five candidate data-center
-                locations using energy, renewable-resource, reliability, cost,
-                and infrastructure inputs.
+                Built Tableau dashboards comparing electricity supply, demand,
+                and renewable generation across 13 U.S. regions using a
+                program-provided case dataset.
               </p>
               <IntelDecisionExplorer />
               <div className="tag-row">
-                <span title="Comparative decision views">Tableau</span>
-                <span title="Normalized multi-source inputs">Excel</span>
-                <span title="Weighted criteria and trade-offs">Comparative analysis</span>
+                <span title="Regional dashboards">Tableau</span>
+                <span title="Energy metric comparisons">Regional comparison</span>
               </div>
             </article>
 
             <article className="project project-audience" aria-labelledby="audience-title">
               <div className="project-topline">
-                <span>Audience analytics</span>
-                <span>Recording Academy</span>
+                <span>Website engagement analysis</span>
+                <span>Recording Academy case · IU experiential course</span>
               </div>
               <p className="project-index">Project 03</p>
-              <h3 id="audience-title">Where does the audience disappear?</h3>
+              <h3 id="audience-title">What changed in Grammy.com engagement?</h3>
               <p className="project-summary">
-                Cleaned campaign data and built KPI reporting that identified
-                three engagement drop-off points and top-performing content segments.
+                Used Excel PivotTables and KPI comparisons on a program-provided
+                case dataset to examine Grammy.com engagement before and after
+                a website split.
               </p>
               <AudienceLens />
               <div className="project-outcome">
                 <span>Outcome</span>
                 <p>
-                  Identified three engagement drop-off points and the strongest content segments, giving the final strategy a clearer focus.
+                  Observed pages per session rise from 1.86 to 2.25 after the split and recommended retaining separate sites.
                 </p>
               </div>
               <div className="evidence-note">
                 <span>Evidence boundary</span>
                 <p>
-                  The three drop-off points are supported by the project record;
-                  exact campaign values remain off-site.
+                  This is a before-and-after comparison, not proof that the website split caused the increase.
                 </p>
               </div>
               <div className="tag-row">
-                <span title="Audience reporting views">Tableau</span>
-                <span title="Data cleaning and automation">Python</span>
-                <span title="Reach, engage, and retain framing">KPI reporting</span>
+                <span title="Engagement analysis">Excel PivotTables</span>
+                <span title="Before-and-after website engagement">KPI comparison</span>
               </div>
             </article>
           </div>
@@ -313,7 +310,7 @@ export default function Home() {
             <p className="eyebrow">03 / Capabilities</p>
             <h2 id="capabilities-title">What I actually do.</h2>
             <p>
-              Financial markets, modeling, and communication. No 96% skill bars.
+              Data, finance, and communication. No 96% skill bars.
               Nobody knows what 96% of Excel means.
             </p>
           </div>
@@ -356,9 +353,15 @@ export default function Home() {
               examine the financial and operating evidence, build a model or dashboard,
               and explain the conclusion clearly</strong>. I have used that approach across
               investment research, finance operations, and client analytics. I am looking
-              for roles where financial judgment and analytical execution belong together.
+              for data and business analyst roles where analytical execution and
+              financial judgment belong together.
             </p>
             <EducationList />
+            <p className="about-personal">
+              At IU, I served as Finance Chair for Principles of Cybersecurity,
+              managing a semester budget of approximately $2,000 and coordinating
+              financial logistics for three employer-led workshops serving 60+ attendees.
+            </p>
             <p className="about-personal">
               Outside work, you&apos;ll usually find me playing the piano, out for a run, reading philosophy, or resetting with breathwork. FC Barcelona is my club, and on match day, I&apos;m usually glued to the screen.{" "}
               <span className="visca-blue">Visca</span> el{" "}
