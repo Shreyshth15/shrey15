@@ -13,7 +13,8 @@ test("portfolio claims match Resume15 and older claims are gone", async () => {
 
   assert.match(page, /Data analyst · Business analyst · Financial analysis · Investment research/);
   assert.match(page, /Hi, I&apos;m <strong>Shreyshth Sharma<\/strong>/);
-  assert.match(page, /AI-native\s+finance and analytics professional/);
+  assert.match(page, /Financial research × data analytics/);
+  assert.match(page, /AI-assisted analysis to test assumptions/);
   assert.match(page, /Individual · ECON E402 course project/);
   assert.match(page, /\$12,000 annual UBI, 0\.10 elasticity/);
   assert.match(page, /\$50,000 baseline income/);
