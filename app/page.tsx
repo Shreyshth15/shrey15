@@ -126,7 +126,7 @@ export default function Home() {
               </em>
             </h1>
             <p className="hero-intro">
-              Hi, I&apos;m <strong>Shreyshth Sharma</strong>—Shrey for short. I turn
+              Hi, I&apos;m <strong>Shreyshth Sharma</strong>. I turn
               company, market, and operating data into <strong>investment research
               and financial analysis</strong>. I pair quantitative thinking with
               AI-assisted analysis to test assumptions and find what matters.
