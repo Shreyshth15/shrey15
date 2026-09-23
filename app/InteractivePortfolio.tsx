@@ -446,7 +446,7 @@ const experiences = [
     date: "Jul 2022–May 2023",
     duration: "11 months",
     location: "Remote",
-    role: "Investment Banking Fellow (Part-Time)",
+    role: "Investment Banking Fellow",
     summary:
       "Researched 15+ companies across TMT, consumer, education, and B2B services.",
     work: [

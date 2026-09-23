@@ -126,11 +126,15 @@ export default function Home() {
               </em>
             </h1>
             <p className="hero-intro">
-              I&apos;m <strong>Shreyshth Sharma</strong>, an Economics and
-              Quantitative Methods graduate focused on <strong>data and business
-              analyst roles</strong>. I use SQL, Python, Excel, and Tableau to examine
-              business questions, with experience in <strong>financial analysis
-              and investment research</strong>.
+              Hi, I&apos;m <strong>Shreyshth Sharma</strong>—Shrey for short. I&apos;m an
+              Economics and Quantitative Methods graduate and an <strong>AI-native
+              finance and analytics professional</strong> with experience turning
+              company, market, and operating data into investment research,
+              financial analysis, and decision support. I combine fundamental
+              research, valuation, econometrics, and quantitative analysis with
+              AI-assisted analytical and coding workflows to test assumptions,
+              accelerate analysis, and identify the drivers of performance, risk,
+              value, and opportunity.
             </p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">
